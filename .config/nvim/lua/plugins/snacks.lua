@@ -262,7 +262,16 @@ return {
 		{
 			"<leader>sm",
 			function()
-				Snacks.picker.man()
+				Snacks.picker.man({
+					confirm = function(picker, item)
+						picker:close()
+						if item then
+							vim.schedule(function()
+								vim.cmd("vert Man " .. item.ref)
+							end)
+						end
+					end,
+				})
 			end,
 			desc = "Man Pages",
 		},
@@ -374,6 +383,13 @@ return {
 			end,
 			mode = { "n", "v" },
 			desc = "Code actions",
+		},
+		{
+			"<leader>c,",
+			function()
+				vim.lsp.buf.rename()
+			end,
+			desc = "Rename Variable",
 		},
 
 		-- Others
