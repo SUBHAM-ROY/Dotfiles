@@ -99,6 +99,14 @@ return {
 			desc = "Find Config File",
 		},
 		{
+			"<leader>f",
+			function()
+				Snacks.picker.files({
+					hidden = true,
+				})
+			end,
+		},
+		{
 			"<leader>p",
 			function()
 				Snacks.picker.projects()
@@ -213,7 +221,16 @@ return {
 		{
 			"<leader>sh",
 			function()
-				Snacks.picker.help()
+				Snacks.picker.help({
+					confirm = function(picker, item)
+						picker:close()
+						if item then
+							vim.schedule(function()
+								vim.cmd("vert help " .. item.text)
+							end)
+						end
+					end,
+				})
 			end,
 			desc = "Help Pages",
 		},
@@ -390,6 +407,16 @@ return {
 				vim.lsp.buf.rename()
 			end,
 			desc = "Rename Variable",
+		},
+		{
+			"K",
+			function()
+				vim.lsp.buf.hover({
+					border = "rounded",
+					focusable = false,
+				})
+			end,
+			desc = "Code Hover",
 		},
 
 		-- Others
