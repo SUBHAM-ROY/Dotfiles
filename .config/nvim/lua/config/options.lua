@@ -1,4 +1,5 @@
 vim.o.number = true -- Show line numbers
+vim.o.relativenumber = true -- Show relative line numbers
 vim.o.cursorline = true -- Show current line highlights
 --vim.o.relativenumber=true -- Show relative numbers from current
 vim.o.splitright = true -- Split vertical on right
