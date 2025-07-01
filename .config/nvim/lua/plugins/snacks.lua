@@ -221,16 +221,7 @@ return {
 		{
 			"<leader>sh",
 			function()
-				Snacks.picker.help({
-					confirm = function(picker, item)
-						picker:close()
-						if item then
-							vim.schedule(function()
-								vim.cmd("vert help " .. item.text)
-							end)
-						end
-					end,
-				})
+				Snacks.picker.help()
 			end,
 			desc = "Help Pages",
 		},
