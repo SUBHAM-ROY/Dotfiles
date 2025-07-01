@@ -6,7 +6,7 @@ return {
 		"mfussenegger/nvim-dap-python",
 	},
 	init = function()
-		require("dap-python").setup("~/.virtualenvs/debugpy/bin/python3")
+		require("dap-python").setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3")
 		local dap, dapui = require("dap"), require("dapui")
 		require("dapui").setup()
 		dap.listeners.before.attach.dapui_config = function()
@@ -57,6 +57,13 @@ return {
 				require("dap").step_out()
 			end,
 			desc = "Dap Step Out",
+		},
+		{
+			"<leader>de",
+			function()
+				require("dapui").eval()
+			end,
+			desc = "Dap Eval",
 		},
 	},
 }

@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 
 # ---------- end of oh-my-zsh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #--------------------- Aliases and functions ---------------------
 alias ls='lsd'
@@ -114,7 +117,7 @@ alias gfc="git branch -a | fzf | sed 's/remotes\/origin\///' | xargs git checkou
 alias gfd="git branch | fzf --multi | xargs git branch -D"
 alias vi=nvim
 alias vim=nvim
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias tm=tmux
 
 vplug() {
   nvim ~/.config/nvim/lua/plugins/"$1".lua
