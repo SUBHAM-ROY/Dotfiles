@@ -19,8 +19,6 @@ return {
 		{ "<leader>Gu", ":Gitsigns undo_stage_hunk<CR>", desc = "Unstage Git hunk" },
 	},
 	init = function()
-		vim.cmd([[
-      highlight GitSignsCurrentLineBlame guifg=#928374 gui=italic
-    ]])
+		vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#928374" })
 	end,
 }
