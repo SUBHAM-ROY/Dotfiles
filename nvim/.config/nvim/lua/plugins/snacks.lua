@@ -105,6 +105,7 @@ return {
 					hidden = true,
 				})
 			end,
+			desc = "Find Files",
 		},
 		{
 			"<leader>p",
