@@ -4,6 +4,8 @@ return {
 		win = {
 			size = { height = 0.1 },
 		},
+		focus = true,
+		auto_preview = false,
 	}, -- for default options, refer to the configuration section for custom setup.
 	cmd = "Trouble",
 	keys = {

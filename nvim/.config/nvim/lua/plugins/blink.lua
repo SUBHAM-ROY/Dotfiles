@@ -43,7 +43,7 @@ return {
 		},
 
 		signature = {
-			enabled = true,
+			enabled = false,
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
