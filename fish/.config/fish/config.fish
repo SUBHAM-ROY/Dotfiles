@@ -2,6 +2,14 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Setting variable for fish
+fish_add_path /opt/homebrew/bin
+set -U fish_color_autosuggestion 888888
+set -U tide_time_format "%m/%d/%Y %r"
+set -U tide_git_color_branch 6B8E5A
+set -U tide_git_color_stash 6B8E5A
+set -U tide_pwd_color_anchors 0087AF
+
 # aliases
 alias ls='lsd'
 alias cd='z'
