@@ -11,5 +11,9 @@ alias vi=nvim
 alias vim=nvim
 alias tm=tmux
 
+function vplug
+    nvim ~/.config/nvim/lua/plugins/$argv[1].lua
+end
+
 zoxide init fish | source
 thefuck --alias | source
