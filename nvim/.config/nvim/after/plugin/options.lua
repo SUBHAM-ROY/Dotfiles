@@ -1,3 +1,4 @@
+vim.o.shell = "fish" -- Use fish shell
 vim.o.number = true -- Show line numbers
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.cursorline = true -- Show current line highlights

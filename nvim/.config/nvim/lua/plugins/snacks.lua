@@ -14,7 +14,7 @@ return {
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		terminal = { enabled = true },
-		scratch = { enabled = true },
+		scratch = { enabled = true, ft = "markdown" },
 		notifier = { enabled = true },
 		statuscolumn = { enabled = true },
 		dashboard = {

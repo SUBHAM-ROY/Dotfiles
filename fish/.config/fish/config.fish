@@ -4,6 +4,7 @@ end
 
 # Setting variable for fish
 fish_add_path /opt/homebrew/bin
+set -U fish_greeting
 set -U fish_color_autosuggestion 888888
 set -U tide_time_format "%m/%d/%Y %r"
 set -U tide_git_color_branch 6B8E5A
@@ -18,6 +19,7 @@ alias gfd="git branch | fzf --multi | xargs git branch -D"
 alias vi=nvim
 alias vim=nvim
 alias tm=tmux
+alias top='btop'
 
 function vplug
     nvim ~/.config/nvim/lua/plugins/$argv[1].lua
