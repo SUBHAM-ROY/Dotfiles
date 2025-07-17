@@ -426,7 +426,7 @@ return {
 			desc = "Zoxide",
 		},
 		{
-			"<C-`>",
+			"<leader>`",
 			function()
 				Snacks.terminal.toggle(nil, { win = { height = 0.2 } })
 			end,

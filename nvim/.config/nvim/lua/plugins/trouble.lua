@@ -1,9 +1,9 @@
 return {
 	"folke/trouble.nvim",
 	opts = {
-		win = {
-			size = { height = 0.1 },
-		},
+		-- win = {
+		-- 	size = { height = 0.1 },
+		-- },
 		focus = true,
 		auto_preview = false,
 	}, -- for default options, refer to the configuration section for custom setup.
