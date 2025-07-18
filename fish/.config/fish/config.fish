@@ -13,17 +13,19 @@ set -U tide_pwd_color_anchors 0087AF
 
 # aliases
 alias ls='lsd'
-alias cd='z'
 alias gfc="git branch -a | fzf | sed 's/remotes\/origin\///' | xargs git checkout"
 alias gfd="git branch | fzf --multi | xargs git branch -D"
 alias vi=nvim
 alias vim=nvim
 alias tm=tmux
 alias top='btop'
+alias cat='bat'
+alias grep='rg'
 
 function vplug
     nvim ~/.config/nvim/lua/plugins/$argv[1].lua
 end
 
 zoxide init fish | source
+alias cd='z'
 thefuck --alias | source
