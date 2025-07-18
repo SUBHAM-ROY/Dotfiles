@@ -1,10 +1,13 @@
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	opts = {},
-	init = function()
-		require("flash").toggle(true)
-	end,
+	opts = {
+		modes = {
+			char = {
+				highlight = { backdrop = false },
+			},
+		},
+	},
 	keys = {
 		{
 			"<leader>j",
