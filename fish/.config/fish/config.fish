@@ -11,6 +11,8 @@ set -U tide_git_color_branch 6B8E5A
 set -U tide_git_color_stash 6B8E5A
 set -U tide_pwd_color_anchors 0087AF
 
+set -gx EDITOR nvim
+
 # aliases
 alias ls='lsd'
 alias gfc="git branch -a | fzf | sed 's/remotes\/origin\///' | xargs git checkout"
