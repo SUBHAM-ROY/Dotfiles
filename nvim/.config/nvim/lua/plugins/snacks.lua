@@ -158,7 +158,7 @@ return {
 			desc = "Git Diff (Hunks)",
 		},
 		{
-			"<leader>lg",
+			"<leader>gg",
 			function()
 				Snacks.lazygit()
 			end,
