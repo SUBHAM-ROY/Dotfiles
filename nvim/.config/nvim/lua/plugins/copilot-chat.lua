@@ -43,8 +43,5 @@ return {
 				},
 			},
 		},
-		keys = {
-			{ "<leader>cc", "<cmd>CopilotChatToggle<cr>", desc = "Copilot Chat" },
-		},
 	},
 }
