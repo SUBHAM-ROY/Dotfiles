@@ -31,3 +31,6 @@ end
 zoxide init fish | source
 alias cd='z'
 thefuck --alias | source
+if test -f ~/.config/fish/config-personal.fish
+    source ~/.config/fish/config-personal.fish
+end
