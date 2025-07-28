@@ -99,16 +99,16 @@ return {
     {
       '<leader>nv',
       function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+        Snacks.picker.files({ cwd = vim.fn.stdpath('config') })
       end,
       desc = 'Find Config File',
     },
     {
       '<leader>f',
       function()
-        Snacks.picker.files {
+        Snacks.picker.files({
           hidden = true,
-        }
+        })
       end,
       desc = 'Find Files',
     },
@@ -131,7 +131,7 @@ return {
     {
       '<leader>gb',
       function()
-        Snacks.picker.git_branches { all = true }
+        Snacks.picker.git_branches({ all = true })
       end,
       desc = 'Git Branches',
     },
@@ -276,7 +276,7 @@ return {
     {
       '<leader>sm',
       function()
-        Snacks.picker.man {
+        Snacks.picker.man({
           confirm = function(picker, item)
             picker:close()
             if item then
@@ -285,7 +285,7 @@ return {
               end)
             end
           end,
-        }
+        })
       end,
       desc = 'Man Pages',
     },
@@ -379,14 +379,14 @@ return {
     {
       '<leader>cS',
       function()
-        Snacks.picker.lsp_symbols { filter = { default = true } }
+        Snacks.picker.lsp_symbols({ filter = { default = true } })
       end,
       desc = 'LSP Symbols',
     },
     {
       '<leader>cs',
       function()
-        Snacks.picker.lsp_workspace_symbols { filter = { default = true } }
+        Snacks.picker.lsp_workspace_symbols({ filter = { default = true } })
       end,
       desc = 'LSP Workspace Symbols',
     },
@@ -408,10 +408,10 @@ return {
     {
       'K',
       function()
-        vim.lsp.buf.hover {
+        vim.lsp.buf.hover({
           border = 'rounded',
           focusable = false,
-        }
+        })
       end,
       desc = 'Code Hover',
     },

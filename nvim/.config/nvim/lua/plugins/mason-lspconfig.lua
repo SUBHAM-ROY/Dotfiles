@@ -22,7 +22,7 @@ return {
       [vim.diagnostic.severity.INFO] = '',
       [vim.diagnostic.severity.HINT] = '󰌶',
     }
-    vim.diagnostic.config {
+    vim.diagnostic.config({
       virtual_text = {
         prefix = function(diagnostic, _, _)
           return icons[diagnostic.severity] .. ' '
@@ -31,6 +31,6 @@ return {
       signs = {
         text = icons,
       },
-    }
+    })
   end,
 }
