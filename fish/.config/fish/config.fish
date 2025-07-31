@@ -20,6 +20,7 @@ alias gfd="git branch | fzf --multi | xargs git branch -D"
 alias vi=nvim
 alias vim=nvim
 alias tm=tmux
+alias ta='tmux a || tmux new'
 alias top='btop'
 alias cat='bat'
 alias grep='rg'
