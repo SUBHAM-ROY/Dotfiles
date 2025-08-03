@@ -12,6 +12,7 @@ set -U tide_git_color_stash 6B8E5A
 set -U tide_pwd_color_anchors 0087AF
 
 set -gx EDITOR nvim
+set -gx PAGER 'nvim +Man!'
 
 # aliases
 alias ls='lsd'
