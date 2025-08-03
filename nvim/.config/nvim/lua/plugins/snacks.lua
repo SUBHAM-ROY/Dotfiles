@@ -17,6 +17,7 @@ return {
     scratch = { enabled = true, ft = 'markdown' },
     notifier = { enabled = true },
     statuscolumn = { enabled = true },
+    bufdelete = { enabled = true },
     dashboard = {
       enabled = true,
       preset = {
@@ -459,6 +460,13 @@ return {
         Snacks.dashboard()
       end,
       desc = 'Home screen',
+    },
+    {
+      '<leader>W',
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = 'Delete Other Buffers',
     },
   },
 }
