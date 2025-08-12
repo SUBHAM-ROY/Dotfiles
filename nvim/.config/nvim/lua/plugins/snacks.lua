@@ -464,6 +464,14 @@ return {
     {
       '<leader>W',
       function()
+        Snacks.bufdelete.all()
+      end,
+      desc = 'Delete All Buffers',
+    },
+    {
+
+      '<leader>gw',
+      function()
         Snacks.bufdelete.other()
       end,
       desc = 'Delete Other Buffers',

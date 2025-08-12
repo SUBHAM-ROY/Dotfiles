@@ -14,4 +14,7 @@ return {
       },
     },
   },
+  keys = {
+    { '<leader>gc', '<cmd>Copilot toggle<cr>', desc = 'Toggle Copilot' },
+  },
 }
