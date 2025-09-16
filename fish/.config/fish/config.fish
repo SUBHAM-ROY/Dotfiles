@@ -12,7 +12,7 @@ set -U tide_git_color_stash 6B8E5A
 set -U tide_pwd_color_anchors 0087AF
 
 set -gx EDITOR nvim
-set -gx PAGER 'nvim +Man!'
+set -gx MANPAGER 'nvim +Man!'
 
 # aliases
 alias ls='lsd'
@@ -25,6 +25,8 @@ alias ta='tmux a || tmux new'
 alias top='btop'
 alias cat='bat'
 alias grep='rg'
+alias yy='yazi'
+alias gg='lazygit'
 
 function vplug
     nvim ~/.config/nvim/lua/plugins/$argv[1].lua
