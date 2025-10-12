@@ -27,6 +27,7 @@ alias cat='bat'
 alias grep='rg'
 alias yy='yazi'
 alias gg='lazygit'
+alias ff='fastfetch'
 
 function vplug
     nvim ~/.config/nvim/lua/plugins/$argv[1].lua
