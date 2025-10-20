@@ -277,16 +277,7 @@ return {
     {
       '<leader>sm',
       function()
-        Snacks.picker.man({
-          confirm = function(picker, item)
-            picker:close()
-            if item then
-              vim.schedule(function()
-                vim.cmd('vert Man ' .. item.ref)
-              end)
-            end
-          end,
-        })
+        Snacks.picker.man()
       end,
       desc = 'Man Pages',
     },
