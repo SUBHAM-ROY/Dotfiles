@@ -98,7 +98,7 @@ return {
 
     -- find
     {
-      '<leader>nv',
+      '<leader>;',
       function()
         Snacks.picker.files({ cwd = vim.fn.stdpath('config') })
       end,
@@ -289,7 +289,7 @@ return {
       desc = 'Quickfix List',
     },
     {
-      '<leader>sR',
+      '<leader>sr',
       function()
         Snacks.picker.resume()
       end,
@@ -424,7 +424,7 @@ return {
       desc = 'Zoxide',
     },
     {
-      '<leader>`',
+      '<leader>``',
       function()
         Snacks.terminal.toggle(nil, { win = { height = 0.2 } })
       end,

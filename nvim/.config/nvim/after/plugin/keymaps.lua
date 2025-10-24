@@ -26,7 +26,11 @@ vim.keymap.set('i', '<M-l>', '<C-o>l', opts) -- Move right in insert mode with A
 vim.keymap.set('i', '<M-o>', '<C-o>o', opts) -- Open a new line below in insert mode with Alt+o
 vim.keymap.set('i', '<M-O>', '<C-o>O', opts) -- Open a new line above in insert mode with Alt+O
 
--- Quickly jump to marks
-for i = 0, 9 do
-  vim.keymap.set('n', '<space>' .. i, '`' .. i, opts)
+-- Map <space> + a..z to jump to marks A..Z
+-- Map <space>m + a..z to set marks A..Z
+for c = string.byte('a'), string.byte('z') do
+  local lower = string.char(c)
+  local upper = string.upper(lower)
+  vim.keymap.set('n', '<space>n' .. lower, '`' .. upper, opts)
+  vim.keymap.set('n', '<space>m' .. lower, 'm' .. upper, opts)
 end
