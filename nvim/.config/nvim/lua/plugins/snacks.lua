@@ -114,13 +114,6 @@ return {
       desc = 'Find Files',
     },
     {
-      '<leader>p',
-      function()
-        Snacks.picker.projects()
-      end,
-      desc = 'Projects',
-    },
-    {
       '<leader>r',
       function()
         Snacks.picker.recent()
