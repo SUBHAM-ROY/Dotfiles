@@ -26,6 +26,11 @@ vim.keymap.set('i', '<M-l>', '<C-o>l', opts) -- Move right in insert mode with A
 vim.keymap.set('i', '<M-o>', '<C-o>o', opts) -- Open a new line below in insert mode with Alt+o
 vim.keymap.set('i', '<M-O>', '<C-o>O', opts) -- Open a new line above in insert mode with Alt+O
 
+-- Do not yank on change
+vim.keymap.set('n', 'c', '"_c', opts)
+vim.keymap.set('n', 'C', '"_C', opts)
+vim.keymap.set('n', 'cc', '"_cc', opts)
+
 -- Map <space> + a..z to jump to marks A..Z
 -- Map <space>m + a..z to set marks A..Z
 for c = string.byte('a'), string.byte('z') do
