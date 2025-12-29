@@ -18,7 +18,9 @@ vim.keymap.set({ 'n', 'v' }, '<C-l>', '5l', opts) -- Move right 5 characters
 vim.keymap.set('n', '<C-]>', '<C-]>zz', opts) -- Jump to definition and center the cursor
 
 -- Keymaps for insert mode
-vim.keymap.set({ 'i', 'c' }, 'jj', '<Esc>', opts) -- Exit insert and command mode with 'jj'
+vim.keymap.set('i', 'jj', '<Esc>', opts) -- Exit insert mode with 'jj'
+vim.keymap.set('c', 'jj', '<C-c>', opts) -- Abort command-line with 'jj' without triggering Normal-mode <Esc>
+vim.keymap.set('t', 'jj', [[<C-\><C-n>]], opts) -- Exit terminal mode with 'jj'
 vim.keymap.set('i', '<M-j>', '<C-o>j', opts) -- Move down in insert mode with Alt+j
 vim.keymap.set('i', '<M-k>', '<C-o>k', opts) -- Move up in insert mode with Alt+k
 vim.keymap.set('i', '<M-h>', '<C-o>h', opts) -- Move left in insert mode with Alt+h

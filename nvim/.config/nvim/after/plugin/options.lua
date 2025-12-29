@@ -14,10 +14,10 @@ vim.o.smartindent = true -- Smart indenting
 vim.o.autoindent = true -- Keep indent from current line
 vim.o.breakindent = true -- Keep indent on wrapped lines
 
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo.foldenable = false
-vim.wo.foldlevel = 99
+vim.o.foldmethod = 'expr' -- Use expression for folding
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use treesitter for fold expression
+vim.o.foldenable = false -- Don't fold by default
+vim.o.foldlevel = 99 -- Open all folds by default
 
 -- Make Vim windows transparent
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })

@@ -3,9 +3,7 @@ return {
   lazy = false,
   opts = {
     ensure_installed = {
-      'ts_ls',
       'pyright',
-      'eslint',
     },
   },
   dependencies = {
