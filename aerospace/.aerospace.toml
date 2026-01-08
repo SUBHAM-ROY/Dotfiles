@@ -104,11 +104,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-backslash = 'layout tiles accordion'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left --boundaries-action wrap-around-the-workspace'
-    alt-j = 'focus down --boundaries-action wrap-around-the-workspace'
-    alt-k = 'focus up --boundaries-action wrap-around-the-workspace'
-    alt-l = 'focus right --boundaries-action wrap-around-the-workspace'
+    # alt-left = 'focus left --boundaries-action wrap-around-the-workspace'
+    # alt-down = 'focus down --boundaries-action wrap-around-the-workspace'
+    # alt-up = 'focus up --boundaries-action wrap-around-the-workspace'
+    # alt-right = 'focus right --boundaries-action wrap-around-the-workspace'
     alt-backtick = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
+    alt-shift-backtick = 'focus-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left --boundaries-action stop'
@@ -164,7 +165,7 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'zoom'
-    run = ['move-node-to-workspace 6']
+    run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'slack'
@@ -175,5 +176,18 @@ automatically-unhide-macos-hidden-apps = false
     run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'code'
+    if.app-name-regex-substring = 'kitty|cursor|code'
     run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'edge'
+    run = ['move-node-to-workspace 1']
+
+# Force assignment of workspaces to monitors by their pattern.
+[workspace-to-monitor-force-assignment]
+    1 = 2
+    2 = 2
+    3 = 2
+    4 = 1
+    5 = 1
+    6 = 1
