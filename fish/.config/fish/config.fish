@@ -1,5 +1,10 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    fish_vi_key_bindings
+    bind -M insert jj 'set fish_bind_mode default'
+    bind -M insert ctrl-p up-or-search
+    bind -M insert ctrl-n down-or-search
+    bind -M insert ctrl-f forward-char
+    bind -M insert ctrl-r history-pager
 end
 
 # Setting variable for fish

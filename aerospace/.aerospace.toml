@@ -3,7 +3,15 @@
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+# Default workspace placement (soft assignment — workspaces can still be moved later)
+after-startup-command = [
+    'workspace 1', 'move-workspace-to-monitor 2', 'layout accordion',
+    'workspace 2', 'move-workspace-to-monitor 2', 'layout accordion',
+    'workspace 3', 'move-workspace-to-monitor 2', 'layout accordion',
+    'workspace 4', 'move-workspace-to-monitor 1', 'layout accordion',
+    'workspace 5', 'move-workspace-to-monitor 1', 'layout accordion',
+    'workspace 6', 'move-workspace-to-monitor 1', 'layout accordion',
+]
 
 # Start AeroSpace at login
 start-at-login = false
@@ -18,7 +26,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 0
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -139,13 +147,15 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5'] 
     alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 
-    ctrl-alt-left = 'move-node-to-monitor --focus-follows-window left'
-    ctrl-alt-right = 'move-node-to-monitor --focus-follows-window right'
+    ctrl-alt-h = 'move-node-to-monitor --focus-follows-window --wrap-around left'
+    ctrl-alt-l = 'move-node-to-monitor --focus-follows-window --wrap-around right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    alt-shift-f = 'layout floating tiling'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-semicolon = 'mode service'
@@ -155,7 +165,6 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     r = ['reload-config', 'mode main']
     esc = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
 
     alt-shift-h = ['join-with left', 'mode main']
@@ -182,12 +191,3 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-name-regex-substring = 'edge'
     run = ['move-node-to-workspace 1']
-
-# Force assignment of workspaces to monitors by their pattern.
-[workspace-to-monitor-force-assignment]
-    1 = 2
-    2 = 2
-    3 = 2
-    4 = 1
-    5 = 1
-    6 = 1
