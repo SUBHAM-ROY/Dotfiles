@@ -35,12 +35,8 @@ alias gg='lazygit'
 alias ff='fastfetch'
 
 function vplug
-    nvim ~/.config/nvim/lua/plugins/$argv[1].lua
+    nvim ~/.config/nvim/plugins/$argv[1].lua
 end
 
 zoxide init fish | source
 alias cd='z'
-thefuck --alias | source
-if test -f ~/.config/fish/config-personal.fish
-    source ~/.config/fish/config-personal.fish
-end

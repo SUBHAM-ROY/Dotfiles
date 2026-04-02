@@ -1,7 +1,6 @@
 local opts = { noremap = true, silent = true }
 
 -- Keymaps for normal mode
-vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', opts) -- Clear search highlights and exit insert mode
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<Esc>:w<CR>', opts) -- Save file with Ctrl+s
 vim.keymap.set({ 'n', 'i' }, '<M-s>', vim.lsp.buf.signature_help, opts) -- Show LSP signature help with Alt+s
 vim.keymap.set('n', '<leader>q', ':q<CR>', opts) -- Quit current window with <leader>q

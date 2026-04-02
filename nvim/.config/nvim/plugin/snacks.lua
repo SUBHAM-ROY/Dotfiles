@@ -2,6 +2,18 @@ vim.pack.add({
   'https://github.com/folke/snacks.nvim',
 })
 
+-- GHE gitbrowse URL patterns (set GHE_HOST env var in personal config)
+local ghe_url_patterns = {}
+local ghe_host = vim.env.GHE_HOST
+if ghe_host then
+  ghe_url_patterns[ghe_host] = {
+    branch = '/tree/{branch}',
+    file = '/blob/{branch}/{file}#L{line_start}-L{line_end}',
+    permalink = '/blob/{commit}/{file}#L{line_start}-L{line_end}',
+    commit = '/commit/{commit}',
+  }
+end
+
 ---@type snacks.Config
 Snacks.setup({
   rename = { enabled = true },
@@ -11,6 +23,7 @@ Snacks.setup({
     ui_select = true,
   },
   git = { enabled = true },
+  gitbrowse = { url_patterns = ghe_url_patterns },
   gh = { enabled = true },
   explorer = { enabled = true },
   indent = { enabled = true },
@@ -146,6 +159,18 @@ map(
 map({ 'n', 'v' }, '<leader>c.', function() vim.lsp.buf.code_action() end, { desc = 'Code actions' })
 map('n', '<leader>c,', function() vim.lsp.buf.rename() end, { desc = 'Rename Variable' })
 map('n', 'K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, { desc = 'Code Hover' })
+
+-- Git Browse
+map({ 'n', 'v' }, '<leader>gf', function() Snacks.gitbrowse({ what = 'file' }) end, { desc = 'Open File on Remote' })
+map('n', '<leader>gc', function() Snacks.gitbrowse({ what = 'commit' }) end, { desc = 'Open Commit on Remote' })
+map(
+  { 'n', 'v' },
+  '<leader>gp',
+  function() Snacks.gitbrowse({ what = 'permalink' }) end,
+  { desc = 'Open Permalink on Remote' }
+)
+map('n', '<leader>gB', function() Snacks.git.blame_line() end, { desc = 'Git Blame Line' })
+map('n', '<leader>gr', function() Snacks.picker.gh_pr() end, { desc = 'GitHub Pull Requests' })
 
 -- Others
 map('n', '<leader>cR', function() Snacks.rename.rename_file() end, { desc = 'Rename File' })

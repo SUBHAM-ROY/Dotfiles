@@ -12,7 +12,7 @@ require('conform').setup({
     ['_'] = { 'prettierd' },
   },
   format_on_save = {
-    lsp_format = 'last',
+    lsp_format = 'fallback',
     timeout_ms = 2000,
   },
   formatters = {
