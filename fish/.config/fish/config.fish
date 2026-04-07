@@ -33,10 +33,11 @@ alias grep='rg'
 alias yy='yazi'
 alias gg='lazygit'
 alias ff='fastfetch'
+alias cd='z'
 
 function vplug
     nvim ~/.config/nvim/plugins/$argv[1].lua
 end
 
 zoxide init fish | source
-alias cd='z'
+atuin init fish | source
