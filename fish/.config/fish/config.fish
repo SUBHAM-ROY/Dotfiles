@@ -4,11 +4,21 @@ if status is-interactive
     bind -M insert ctrl-p up-or-search
     bind -M insert ctrl-n down-or-search
     bind -M insert ctrl-f forward-char
-    bind -M insert ctrl-r history-pager
+end
+
+# homebrew setup
+if test -d /home/linuxbrew/.linuxbrew
+    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+else if test -d /opt/homebrew
+    set -gx HOMEBREW_PREFIX "/opt/homebrew"
+end
+
+if set -q HOMEBREW_PREFIX
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv fish)
+    set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
 end
 
 # Setting variable for fish
-fish_add_path /opt/homebrew/bin
 set -U fish_greeting
 set -U fish_color_autosuggestion 888888
 set -U tide_time_format "%m/%d/%Y %r"
@@ -16,7 +26,7 @@ set -U tide_git_color_branch 6B8E5A
 set -U tide_git_color_stash 6B8E5A
 set -U tide_pwd_color_anchors 0087AF
 
-set -gx EDITOR nvim
+set -gx EDITOR $(which nvim)
 set -gx MANPAGER 'nvim +Man!'
 
 # aliases
@@ -41,3 +51,11 @@ end
 
 zoxide init fish | source
 atuin init fish | source
+
+# Setup ssh-agent
+if not set -q SSH_AUTH_SOCK
+    eval $(ssh-agent -c)
+end
+if not ssh-add -l | grep -qi "ed25519"
+    ssh-add
+end
