@@ -51,11 +51,3 @@ end
 
 zoxide init fish | source
 atuin init fish | source
-
-# Setup ssh-agent
-if not set -q SSH_AUTH_SOCK
-    eval $(ssh-agent -c)
-end
-if not ssh-add -l | grep -qi "ed25519"
-    ssh-add
-end

@@ -58,7 +58,6 @@ run_confirm sudo dnf install -y \
     kitty \
     git \
     node \
-    tree-sitter-cli \
     albert \
     aria2
 
@@ -87,6 +86,7 @@ if [ -d "/home/linuxbrew/.linuxbrew" ]; then
         neovim \
         yazi \
         lazygit \
+        lazydocker \
         fastfetch \
         gemini-cli \
         codex \
@@ -100,7 +100,11 @@ if [ -d "/home/linuxbrew/.linuxbrew" ]; then
         lsd \
         tldr \
         stow \
-        uv
+        uv \
+        tree-sitter-cli \
+        markdownlint-cli2 \
+        ruff \
+        stylua
 else
     echo "Homebrew not found, skipping package installation."
 fi
@@ -123,7 +127,12 @@ if [ -d "$HOME/Dotfiles" ]; then
     run_confirm stow -d "$HOME/Dotfiles" tmux
     run_confirm stow -d "$HOME/Dotfiles" kitty
     run_confirm stow -d "$HOME/Dotfiles" fastfetch
+    run_confirm stow -d "$HOME/Dotfiles" lazygit
 fi
+
+# 9.5. Fedora-specific fish config
+echo "--- Restoring Fedora-specific fish config ---"
+run_confirm ln -sf "$HOME/Dotfiles/System Restore/personal.fish" "$HOME/.config/fish/conf.d/personal.fish"
 
 # 10. Plugin Managers
 echo "--- Setting up Plugin Managers ---"

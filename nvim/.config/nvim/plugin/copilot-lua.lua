@@ -5,6 +5,7 @@ vim.pack.add({
 require('copilot').setup({
   filetypes = {
     markdown = true,
+    yaml = true,
   },
   suggestion = {
     auto_trigger = true,
