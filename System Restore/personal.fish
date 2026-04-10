@@ -1,7 +1,7 @@
 ##################################################
 # Package manager update shortcuts
 ##################################################
-set -l dnf_update "sudo dnf update && sudo dnf upgrade --refresh && sudo dnf autoremove"
+set -l dnf_update "sudo dnf upgrade --refresh && sudo dnf autoremove"
 set -l brew_update "brew update && brew upgrade --greedy && brew cleanup --prune=all"
 set -l flatpak_update "flatpak update && flatpak uninstall --unused"
 alias update="$dnf_update; $brew_update; $flatpak_update"

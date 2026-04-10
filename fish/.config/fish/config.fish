@@ -18,6 +18,12 @@ if set -q HOMEBREW_PREFIX
     set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
 end
 
+# brew envs
+set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
+set -gx HOMEBREW_UPGRADE_GREEDY 1
+set -gx HOMEBREW_API_AUTO_UPDATE_SECS 86400 # 24 hours
+set -gx HOMEBREW_AUTO_UPDATE_SECS 259200 # 72 hours
+
 # Setting variable for fish
 set -U fish_greeting
 set -U fish_color_autosuggestion 888888

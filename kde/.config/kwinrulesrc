@@ -1,0 +1,21 @@
+[52d43275-59fd-468e-89bc-286b522305d0]
+Description=Settings for org.kde.dolphin
+opacityactive=97
+opacityactiverule=2
+opacityinactive=97
+opacityinactiverule=2
+wmclass=org.kde.dolphin
+wmclassmatch=1
+
+[General]
+count=2
+rules=52d43275-59fd-468e-89bc-286b522305d0,a023449d-f65e-49a1-93ba-82578fecda20
+
+[a023449d-f65e-49a1-93ba-82578fecda20]
+Description=Settings for systemsettings
+opacityactive=97
+opacityactiverule=2
+opacityinactive=97
+opacityinactiverule=2
+wmclass=systemsettings
+wmclassmatch=1

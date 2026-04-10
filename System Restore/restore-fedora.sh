@@ -128,6 +128,9 @@ if [ -d "$HOME/Dotfiles" ]; then
     run_confirm stow -d "$HOME/Dotfiles" kitty
     run_confirm stow -d "$HOME/Dotfiles" fastfetch
     run_confirm stow -d "$HOME/Dotfiles" lazygit
+    echo "Tip: Install KDE themes/icons/Krohnkite from store before stowing."
+    run_confirm cp "$HOME/Dotfiles/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
+    run_confirm stow -d "$HOME/Dotfiles" kde
 fi
 
 # 9.5. Fedora-specific fish config
