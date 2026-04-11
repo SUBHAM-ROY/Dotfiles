@@ -36,3 +36,6 @@ set -gx DOCKER_HOST "unix:///run/user/1000/podman/podman.sock"
 function remove_old_kernels
     sudo dnf remove (sudo dnf repoquery --installonly --latest-limit=-1 -q) -y
 end
+
+
+alias reload-plasma="kquitapp6 plasmashell && kstart plasmashell"

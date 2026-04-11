@@ -1,0 +1,10 @@
+[mgr]
+show_hidden = true
+sort_by = 'size'
+sort_reverse = true
+linemode = 'size'
+
+[preview]
+max_width = 1920
+max_height = 1080
+image_quality = 90

@@ -165,7 +165,7 @@ Window Lower=,,Lower Window
 Window Maximize=Meta+PgUp,Meta+PgUp,Maximize Window
 Window Maximize Horizontal=,,Maximize Window Horizontally
 Window Maximize Vertical=,,Maximize Window Vertically
-Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
+Window Minimize=Alt+Shift+Down\tMeta+PgDown,Meta+PgDown,Minimize Window
 Window Move=,,Move Window
 Window Move Center=,,Move Window to the Center
 Window No Border=,,Toggle Window Titlebar and Frame
@@ -284,6 +284,7 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
+activate widget 33=Alt+Shift+T,none,Activate System Tray Widget
 clear-history=,,Clear Clipboard History
 clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,Automatic Action Popup Menu
 cycle-panels=Meta+Alt+P,Meta+Alt+P,Move keyboard focus between panels
@@ -305,14 +306,32 @@ toggle do not disturb=,,Toggle do not disturb
 new-private-window=Alt+Shift+I
 new-window=Alt+Shift+B
 
+[services][brave-pjibgclleladliembfgfagdaldikeohf-Default.desktop]
+_launch=Alt+Shift+M
+
+[services][btrfs-assistant.desktop]
+_launch=Alt+Shift+A
+
+[services][calibre-gui.desktop]
+_launch=Alt+Shift+C
+
+[services][com.stremio.Stremio.desktop]
+_launch=Alt+Shift+S
+
 [services][kitty.desktop]
 _launch=Alt+Shift+K
+
+[services][md.obsidian.Obsidian.desktop]
+_launch=Alt+Shift+O
 
 [services][org.kde.discover.desktop]
 Updates=Alt+Shift+U
 
 [services][org.kde.dolphin.desktop]
 _launch=Alt+Shift+F
+
+[services][org.kde.haruna.desktop]
+_launch=Alt+Shift+H
 
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
