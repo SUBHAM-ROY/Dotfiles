@@ -193,6 +193,7 @@ CurrentPreset=org.kde.plasma.systemmonitor
 [Containments][27][Applets][61][Configuration][Appearance]
 chartFace=org.kde.ksysguard.linechart
 showTitle=false
+updateRateLimit=1000
 
 [Containments][27][Applets][61][Configuration][ConfigDialog]
 DialogHeight=630
@@ -361,10 +362,13 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][28][Applets][33][General]
-extraItems=org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.kscreen,org.kde.plasma.weather,org.kde.plasma.bluetooth
+extraItems=org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.volume,org.kde.kscreen,org.kde.plasma.weather,org.kde.plasma.bluetooth,org.kde.plasma.battery
 knownItems=org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,org.kde.plasma.bluetooth,org.kde.plasma.volume,org.kde.kscreen
 scaleIconsToFit=true
-shownItems=org.kde.plasma.weather,org.kde.plasma.bluetooth
+shownItems=org.kde.plasma.weather,org.kde.plasma.bluetooth,org.kde.plasma.battery
+
+[Containments][28][Applets][33][Shortcuts]
+global=Alt+Shift+T
 
 [Containments][28][Applets][48]
 immutability=1
@@ -392,3 +396,4 @@ wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=
