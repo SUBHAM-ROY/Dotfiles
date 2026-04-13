@@ -6,8 +6,8 @@ RightButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][27]
-ItemGeometries-1920x1080=Applet-58:1376,304,272,208,0;Applet-56:1376,512,272,240,0;Applet-53:1472,0,368,272,0;Applet-60:1648,304,272,208,0;Applet-55:1376,752,272,240,0;Applet-57:1648,512,272,240,0;Applet-61:1648,752,272,240,0;
-ItemGeometriesHorizontal=Applet-58:1376,304,272,208,0;Applet-56:1376,512,272,240,0;Applet-53:1472,0,368,272,0;Applet-60:1648,304,272,208,0;Applet-55:1376,752,272,240,0;Applet-57:1648,512,272,240,0;Applet-61:1648,752,272,240,0;
+ItemGeometries-1920x1080=Applet-58:1376,304,272,208,0;Applet-56:1376,512,272,240,0;Applet-53:1472,0,368,272,0;Applet-55:1376,752,272,240,0;Applet-60:1648,288,272,224,0;Applet-57:1648,512,272,240,0;Applet-61:1648,752,272,240,0;
+ItemGeometriesHorizontal=Applet-58:1376,304,272,208,0;Applet-56:1376,512,272,240,0;Applet-53:1472,0,368,272,0;Applet-55:1376,752,272,240,0;Applet-60:1648,288,272,224,0;Applet-57:1648,512,272,240,0;Applet-61:1648,752,272,240,0;
 activityId=0ce1b04b-6de6-4487-9a8e-dba78932523c
 formfactor=0
 immutability=1
@@ -173,14 +173,20 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][27][Applets][60][Configuration][SensorColors]
+gpu/all/usage=0,0,255
 gpu/gpu0/totalVram=95,76,28
 gpu/gpu0/usage=0,85,255
+gpu/gpu1/usage=0,0,255
+gpu/gpu\\d+/usage=95,83,28
 
 [Containments][27][Applets][60][Configuration][SensorLabels]
+gpu/all/usage=GPU Usage
 gpu/gpu0/temperature=GPU Temp
+gpu/gpu0/usage=GPU Usage
+gpu/gpu1/usage=GPU Usage
 
 [Containments][27][Applets][60][Configuration][Sensors]
-highPrioritySensorIds=["gpu/gpu0/usage"]
+highPrioritySensorIds=["gpu/all/usage"]
 lowPrioritySensorIds=["gpu/gpu0/temperature"]
 
 [Containments][27][Applets][61]

@@ -46,20 +46,42 @@ echo "--- Multimedia Codecs ---"
 run_confirm sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 run_confirm sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
-# 5. Install DNF Packages
+# 5.1. Remove Bloat
+echo "--- Removing Bloat ---"
+run_confirm sudo dnf remove -y \
+    libreoffice* \
+    firefox \
+    neochat \
+    elisa \
+    dragon \
+    kmail \
+    kontact \
+    korganizer \
+    kaddressbook \
+    kmahjongg \
+    kmines \
+    kpat \
+    kolourpaint \
+    kmouth \
+    skanpage \
+    plasma-welcome
+
+# 5.2. Install DNF Packages
 echo "--- Installing DNF Packages ---"
 run_confirm sudo dnf install -y \
     fish \
-    timeshift \
+    snapper \
     brave-browser \
     keepassxc \
-    fzf \
     tmux \
     kitty \
     git \
     node \
     albert \
-    aria2
+    aria2 \
+    samba \
+    calibre \
+    wine
 
 run_confirm sudo dnf group install -y development-tools
 
@@ -104,12 +126,22 @@ if [ -d "/home/linuxbrew/.linuxbrew" ]; then
         tree-sitter-cli \
         markdownlint-cli2 \
         ruff \
-        stylua
+        stylua \
+        fzf \
+        ouch
 else
     echo "Homebrew not found, skipping package installation."
 fi
 
-# 8. Dotfiles Repository
+# 8. Install Flatpaks
+echo "--- Installing Flatpaks ---"
+run_confirm flatpak install -y flathub \
+    md.obsidian.Obsidian \
+    com.stremio.Stremio \
+    com.surfshark.Surfshark \
+    org.kde.haruna
+
+# 9. Dotfiles Repository
 echo "--- Dotfiles Repository ---"
 DOTFILES_DIR="$HOME/Dotfiles"
 if [ ! -d "$DOTFILES_DIR" ]; then
@@ -119,7 +151,7 @@ else
     run_confirm git -C "$DOTFILES_DIR" pull
 fi
 
-# 9. Stowing
+# 10. Stowing
 echo "--- Stowing configurations ---"
 if [ -d "$HOME/Dotfiles" ]; then
     run_confirm stow -d "$HOME/Dotfiles" fish
@@ -128,16 +160,17 @@ if [ -d "$HOME/Dotfiles" ]; then
     run_confirm stow -d "$HOME/Dotfiles" kitty
     run_confirm stow -d "$HOME/Dotfiles" fastfetch
     run_confirm stow -d "$HOME/Dotfiles" lazygit
+    run_confirm stow -d "$HOME/Dotfiles" yazi
     echo "Tip: Install KDE themes/icons/Krohnkite from store before stowing."
     run_confirm cp "$HOME/Dotfiles/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
     run_confirm stow -d "$HOME/Dotfiles" kde
 fi
 
-# 9.5. Fedora-specific fish config
+# 11. Fedora-specific fish config
 echo "--- Restoring Fedora-specific fish config ---"
 run_confirm ln -sf "$HOME/Dotfiles/System Restore/personal.fish" "$HOME/.config/fish/conf.d/personal.fish"
 
-# 10. Plugin Managers
+# 12. Plugin Managers
 echo "--- Setting up Plugin Managers ---"
 # TPM
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
@@ -162,7 +195,7 @@ fi
 echo "Installing Fisher plugins..."
 run_confirm fish -c "fisher update"
 
-# 11. Grub Theme & Config
+# 13. Grub Theme & Config
 echo "--- Grub Theme & Config ---"
 THEME_DIR="$HOME/Downloads/Elegant-grub2-themes"
 if [ ! -d "$THEME_DIR" ]; then
