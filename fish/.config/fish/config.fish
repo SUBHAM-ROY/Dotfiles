@@ -51,6 +51,13 @@ alias gg='lazygit'
 alias ff='fastfetch'
 alias cd='z'
 
+
+# More useful aliases
+alias fdf='fd -t f -u'
+alias fdd='fd -t d -u'
+alias lsa='lsd -A'
+alias lsla='lsd -lA'
+
 function vplug
     nvim ~/.config/nvim/plugins/$argv[1].lua
 end

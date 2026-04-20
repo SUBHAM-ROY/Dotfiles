@@ -14,7 +14,7 @@ function convert_to_aria2c
     set -l index 1
     cat $file | while read -l url
         echo "$url" >> aria.txt
-        echo "  out=$index.mkv" >> aria.txt
+        printf "  out=%02d.mkv\n" $index >> aria.txt
         set index (math $index + 1)
     end
     cat aria.txt
