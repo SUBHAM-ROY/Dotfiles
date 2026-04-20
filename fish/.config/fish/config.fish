@@ -34,6 +34,7 @@ set -U tide_pwd_color_anchors 0087AF
 
 set -gx EDITOR $(which nvim)
 set -gx MANPAGER 'nvim +Man!'
+set -gx RIPGREP_CONFIG_PATH ~/.rgrc
 
 # aliases
 alias ls='lsd'
@@ -55,8 +56,9 @@ alias cd='z'
 # More useful aliases
 alias fdf='fd -t f -u'
 alias fdd='fd -t d -u'
-alias lsa='lsd -A'
-alias lsla='lsd -lA'
+alias la='lsd -A'
+alias ll='lsd -lA'
+alias lt='lsd --tree --depth 3'
 
 function vplug
     nvim ~/.config/nvim/plugins/$argv[1].lua

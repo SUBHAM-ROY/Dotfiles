@@ -1,0 +1,7 @@
+--no-ignore
+--hidden
+--follow
+--glob=!.git
+--glob=!.venv
+--glob=!node_modules
+--glob=!.mypy_cache

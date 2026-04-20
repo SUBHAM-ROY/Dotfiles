@@ -8,6 +8,11 @@ require('sidekick').setup({
       backend = 'tmux',
       enabled = true,
     },
+    win = {
+      split = {
+        width = 0.45,
+      },
+    },
   },
 })
 
@@ -17,7 +22,12 @@ map('n', '<tab>', function()
   if not require('sidekick').nes_jump_or_apply() then return '<Tab>' end
 end, { expr = true, desc = 'Goto/Apply Next Edit Suggestion' })
 
-map('n', '<leader>aa', function() require('sidekick.cli').toggle() end, { desc = 'Sidekick Toggle CLI' })
+map(
+  'n',
+  '<leader>aa',
+  function() require('sidekick.cli').toggle({ filter = { installed = true } }) end,
+  { desc = 'Sidekick Toggle CLI' }
+)
 map(
   'n',
   '<leader>as',

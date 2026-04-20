@@ -1,0 +1,7 @@
+filter_mode = "directory"
+inline_height = 15
+invert = true
+enter_accept = true
+
+[search]
+filters = ["directory", "global"]
