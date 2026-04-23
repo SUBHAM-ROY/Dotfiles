@@ -1,2 +1,6 @@
 [Libinput][1267][12458][CUST0001:00 04F3:30AA Touchpad]
+DisableWhileTyping=false
 NaturalScroll=true
+
+[Libinput][2][14][ETPS/2 Elantech Touchpad]
+DisableWhileTyping=false

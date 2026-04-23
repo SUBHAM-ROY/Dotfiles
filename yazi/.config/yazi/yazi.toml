@@ -8,3 +8,8 @@ linemode = 'size'
 max_width = 1920
 max_height = 1080
 image_quality = 90
+
+[open]
+prepend_rules = [
+   { url = "*.srt", use = ['edit', 'open', 'reveal'] },
+]

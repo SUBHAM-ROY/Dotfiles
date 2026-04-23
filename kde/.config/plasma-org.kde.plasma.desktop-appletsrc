@@ -282,6 +282,9 @@ plugin=org.kde.plasma.vault
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
+[Containments][28][Applets][33][Applets][36][Shortcuts]
+global=Alt+Shift+W
+
 [Containments][28][Applets][33][Applets][37]
 immutability=1
 plugin=org.kde.plasma.cameraindicator
@@ -301,6 +304,9 @@ plugin=org.kde.plasma.manage-inputmethod
 [Containments][28][Applets][33][Applets][41]
 immutability=1
 plugin=org.kde.plasma.notifications
+
+[Containments][28][Applets][33][Applets][41][Shortcuts]
+global=Alt+Shift+N
 
 [Containments][28][Applets][33][Applets][42]
 immutability=1
@@ -351,6 +357,9 @@ plugin=org.kde.kscreen
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
+[Containments][28][Applets][33][Applets][50][Shortcuts]
+global=Alt+Shift+D
+
 [Containments][28][Applets][33][Applets][51]
 immutability=1
 plugin=org.kde.plasma.battery
@@ -374,7 +383,7 @@ scaleIconsToFit=true
 shownItems=org.kde.plasma.weather,org.kde.plasma.bluetooth,org.kde.plasma.battery
 
 [Containments][28][Applets][33][Shortcuts]
-global=Alt+Shift+T
+global=
 
 [Containments][28][Applets][48]
 immutability=1
