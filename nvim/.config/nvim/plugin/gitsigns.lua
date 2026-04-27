@@ -11,7 +11,7 @@ require('gitsigns').setup({
   current_line_blame_formatter_nc = '    You, <author_time:%R>, Not commited yet',
 })
 
-vim.api.nvim_set_hl(0, 'GitSignsCurrentLineBlame', { fg = '#928374' })
+vim.api.nvim_set_hl(0, 'GitSignsCurrentLineBlame', { fg = '#777777' })
 
 local map = vim.keymap.set
 map('n', ']h', ':Gitsigns next_hunk<CR>', { desc = 'Next Git hunk' })

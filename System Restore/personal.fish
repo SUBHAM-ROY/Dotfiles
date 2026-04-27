@@ -35,3 +35,13 @@ alias reload-plasma="kquitapp6 plasmashell && kstart plasmashell"
 function remove_snapper
     snapper -c $argv[1] ls | fzf --reverse --multi | perl -lane 'print $F[0]' | xargs snapper -c $argv[1] remove
 end
+
+# Set a timer
+function timer
+    echo "sleep $argv[1] && aplay -d 3 ~/Downloads/timer.wav" | at now
+end
+
+# Sleep after a certain time
+function sleep_after
+    echo "sleep $argv[1] && systemctl suspend" | sudo at now
+end
