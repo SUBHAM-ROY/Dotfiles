@@ -4,6 +4,7 @@ if status is-interactive
     bind -M insert ctrl-p up-or-search
     bind -M insert ctrl-n down-or-search
     bind -M insert ctrl-f forward-char
+    bind -M insert ctrl-r history-pager
 end
 
 # homebrew setup
@@ -65,4 +66,3 @@ function vplug
 end
 
 zoxide init fish | source
-atuin init fish | source

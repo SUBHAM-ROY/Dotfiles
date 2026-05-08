@@ -9,14 +9,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts) -- Scroll up and center the cursor
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts) -- Scroll down and center the cursor
 vim.keymap.set('n', '<C-e>', '5<C-e>', opts) -- Scroll down 5 lines
 vim.keymap.set('n', '<C-y>', '5<C-y>', opts) -- Scroll up 5 lines
-vim.keymap.set({ 'n', 'v' }, '<C-j>', '5jzz', opts) -- Move down 5 lines and center the cursor
-vim.keymap.set({ 'n', 'v' }, '<C-k>', '5kzz', opts) -- Move up 5 lines and center the cursor
+vim.keymap.set({ 'n', 'v' }, '<C-j>', '5j', opts) -- Move down 5 lines and center the cursor
+vim.keymap.set({ 'n', 'v' }, '<C-k>', '5k', opts) -- Move up 5 lines and center the cursor
 vim.keymap.set({ 'n', 'v' }, '<C-h>', '5h', opts) -- Move left 5 characters
 vim.keymap.set({ 'n', 'v' }, '<C-l>', '5l', opts) -- Move right 5 characters
-vim.keymap.set('n', '<C-]>', '<C-]>zz', opts) -- Jump to definition and center the cursor
-vim.keymap.set('n', '<C-o>', '<C-o>zz', opts) -- Jump back and center the cursor
-vim.keymap.set('n', 'n', 'nzz', opts) -- Next search result and center the cursor
-vim.keymap.set('n', 'N', 'Nzz', opts) -- Previous search result and center the cursor
 
 -- Keymaps for insert mode
 vim.keymap.set('i', 'jj', '<Esc>', opts) -- Exit insert mode with 'jj'

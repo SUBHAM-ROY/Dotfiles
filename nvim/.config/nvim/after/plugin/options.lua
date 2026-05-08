@@ -5,6 +5,7 @@ vim.o.cursorline = true -- Show current line highlights
 vim.o.splitright = true -- Split vertical on right
 vim.o.splitbelow = true -- Split horizontal on bottom
 vim.o.clipboard = 'unnamedplus' -- Shared clipboard
+vim.o.scrolloff = 999 -- Always keep cursor centered vertically
 
 vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.shiftwidth = 4 -- Use 4 spaces for autoindent
