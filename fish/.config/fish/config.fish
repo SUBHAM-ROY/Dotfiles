@@ -66,3 +66,4 @@ function vplug
 end
 
 zoxide init fish | source
+fzf_configure_bindings --git_log=ctrl-alt-g

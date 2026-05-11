@@ -161,6 +161,7 @@ if [ -d "$HOME/Dotfiles" ]; then
     run_confirm stow -d "$HOME/Dotfiles" fastfetch
     run_confirm stow -d "$HOME/Dotfiles" lazygit
     run_confirm stow -d "$HOME/Dotfiles" yazi
+    run_confirm stow -d "$HOME/Dotfiles" ripgrep
     echo "Tip: Install KDE themes/icons/Krohnkite from store before stowing."
     run_confirm cp "$HOME/Dotfiles/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
     run_confirm stow -d "$HOME/Dotfiles" kde
