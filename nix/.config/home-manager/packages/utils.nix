@@ -5,7 +5,7 @@
     tldr
     speedtest-cli
     bat
-    ouch
+    (ouch.override { enableUnfree = true; })
     lsd
     jq
     fd
