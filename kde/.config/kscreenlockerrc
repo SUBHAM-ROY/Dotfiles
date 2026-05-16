@@ -1,3 +1,7 @@
+[Daemon]
+Autolock=false
+Timeout=0
+
 [Greeter][Wallpaper][org.kde.image][General]
 Image=file:///home/sroy/Downloads/office-lofi.jpg
 PreviewImage=file:///home/sroy/Downloads/office-lofi.jpg

@@ -1,0 +1,28 @@
+{ ... }:
+
+{
+  programs.lazygit = {
+    enable = true;
+    enableFishIntegration = true;
+    shellWrapperName = "gg";
+    settings = {
+      gui = {
+        skipAmendWarning = true;
+        skipStashWarning = true;
+        nerdFontsVersion = 3;
+      };
+      git = {
+        branchPrefix = "subham/";
+      };
+      notARepository = "skip";
+      customCommands = [
+        {
+          key = "<c-p>";
+          context = "localBranches";
+          command = "git push origin {{.SelectedLocalBranch.Name}}";
+          description = "Push selected branch to origin";
+        }
+      ];
+    };
+  };
+}
