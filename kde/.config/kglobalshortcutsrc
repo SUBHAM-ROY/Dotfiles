@@ -306,8 +306,8 @@ switch to previous activity=,,Switch to Previous Activity
 toggle do not disturb=,,Toggle do not disturb
 
 [services][brave-browser.desktop]
+_launch=Alt+Shift+B
 new-private-window=Alt+Shift+I
-new-window=Alt+Shift+B
 
 [services][brave-pjibgclleladliembfgfagdaldikeohf-Default.desktop]
 _launch=Alt+Shift+M
@@ -324,7 +324,7 @@ _launch=Alt+Shift+S
 [services][kitty.desktop]
 _launch=Alt+Shift+K
 
-[services][md.obsidian.Obsidian.desktop]
+[services][obsidian.desktop]
 _launch=Alt+Shift+O
 
 [services][org.kde.discover.desktop]

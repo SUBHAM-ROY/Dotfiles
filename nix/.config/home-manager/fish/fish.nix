@@ -38,11 +38,11 @@
       fdf = "fd -t f -u";
       fdd = "fd -t d -u";
 
-      ngc = "nix-collect-garbage -d";
-      hms = "home-manager switch";
-      hmu = "nix flake update --flake ~/.config/home-manager/ && home-manager switch";
+      ngc = "nh clean user";
+      hms = "nh home switch";
+      hmu = "nh home switch -u";
       hmg = "home-manager generations";
-      he = "vi ~/.config/home-manager/home.nix";
+      he = "cd ~/.config/home-manager && vi ~/.config/home-manager/home.nix";
 
       gfc = "git branch -a | fzf | sed 's/remotes\\/origin\\///' | xargs git checkout";
       gfd = "git branch | fzf --multi | xargs git branch -D";
