@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -11,8 +15,10 @@
     ./lazygit/lazygit.nix
     ./yazi/yazi.nix
     ./btop/btop.nix
+    ./mangohud/mangohud.nix
     ./neovim/neovim.nix
     ./aerospace/aerospace.nix
+    ./aria2/aria2.nix
     ./packages/devtools.nix
     ./packages/utils.nix
     ./packages/misc.nix
@@ -109,6 +115,17 @@
     ];
     warn-dirty = false;
   };
+
+  # List of unfree packages that are allowed to be installed.
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "obsidian"
+      "stremio-linux-shell"
+      "albert"
+      "ouch"
+      "unrar"
+    ];
 
   programs.zoxide = {
     enable = true;
