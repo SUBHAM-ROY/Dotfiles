@@ -1,9 +1,14 @@
 {
   pkgs,
   lib,
+  config,
+  osConfig ? null,
   ...
 }:
 
+let
+  isNixOS = osConfig != null;
+in
 {
   imports = [
     ./fish/fish.nix
@@ -93,6 +98,16 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    NH_HOME_FLAKE = "${config.home.homeDirectory}/dotfiles/nix/.config/home-manager";
+    NH_OS_FLAKE = "${config.home.homeDirectory}/dotfiles/nix/nixos";
+    FLAKE =
+      if isNixOS then
+        "${config.home.homeDirectory}/dotfiles/nix/nixos"
+      else
+        "${config.home.homeDirectory}/dotfiles/nix/.config/home-manager";
+
+    # Hint Electron apps to use Wayland
+    NIXOS_OZONE_WL = "1";
   };
 
   home.sessionPath = [
@@ -107,8 +122,8 @@
   programs.home-manager.enable = true;
 
   # This generates ~/.config/nix/nix.conf, which overrides /etc/nix/nix.conf.
-  nix.package = pkgs.nix;
-  nix.settings = {
+  nix.package = lib.mkIf (!isNixOS) pkgs.nix;
+  nix.settings = lib.mkIf (!isNixOS) {
     experimental-features = [
       "nix-command"
       "flakes"
@@ -117,15 +132,17 @@
   };
 
   # List of unfree packages that are allowed to be installed.
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "obsidian"
-      "stremio-linux-shell"
-      "albert"
-      "ouch"
-      "unrar"
-    ];
+  nixpkgs = lib.mkIf (!isNixOS) {
+    config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "obsidian"
+        "stremio-linux-shell"
+        "albert"
+        "ouch"
+        "unrar"
+      ];
+  };
 
   programs.zoxide = {
     enable = true;
@@ -135,5 +152,5 @@
     enable = true;
   };
 
-  targets.genericLinux.enable = lib.mkIf pkgs.stdenv.isLinux true;
+  targets.genericLinux.enable = lib.mkIf (!isNixOS && pkgs.stdenv.isLinux) true;
 }

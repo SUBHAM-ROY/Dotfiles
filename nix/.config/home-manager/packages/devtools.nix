@@ -18,6 +18,8 @@
       tree-sitter
 
       # Languages / Toolchains
+      nodejs
+      yarn
       cargo
       rustc
       rustfmt

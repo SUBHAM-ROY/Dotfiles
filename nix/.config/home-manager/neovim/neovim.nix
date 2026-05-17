@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     neovim
+    gcc
   ];
 
   home.file.".config/nvim".source =
