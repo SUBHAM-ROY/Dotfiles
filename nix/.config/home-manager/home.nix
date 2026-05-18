@@ -27,6 +27,9 @@ in
     ./packages/devtools.nix
     ./packages/utils.nix
     ./packages/misc.nix
+  ]
+  ++ lib.optional isNixOS [
+    ./kde/kde.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
