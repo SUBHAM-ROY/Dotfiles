@@ -31,10 +31,10 @@ run_confirm sudo dnf -y upgrade
 # 2. Add Repositories
 echo "--- Adding Repositories ---"
 run_confirm sudo dnf install -y dnf-plugins-core
-run_confirm sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-run_confirm sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+run_confirm sudo dnf install -y \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 run_confirm sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
-run_confirm sudo dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:manuelschneid3r/Fedora_43/home:manuelschneid3r.repo
 run_confirm flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # 3. Install NVIDIA Drivers
@@ -66,84 +66,30 @@ run_confirm sudo dnf remove -y \
     skanpage \
     plasma-welcome
 
-# 5.2. Install DNF Packages
+# 5.2. Install minimal DNF Packages (system-level only; user tools come from Nix)
 echo "--- Installing DNF Packages ---"
 run_confirm sudo dnf install -y \
-    fish \
     snapper \
-    brave-browser \
-    keepassxc \
-    tmux \
-    kitty \
-    git \
-    node \
-    albert \
-    aria2 \
     samba \
-    calibre \
-    wine
+    wine \
+    keepassxc
 
 run_confirm sudo dnf group install -y development-tools
 
-# 6. Change Shell
-echo "--- Changing Shell ---"
-if [ "$SHELL" != "$(which fish)" ]; then
-    run_confirm sudo chsh -s "$(which fish)" "$USER"
+# 6. Install Nix (Fedora's built-in nix, multi-user / daemon mode)
+# See https://fedoraproject.org/wiki/Changes/Nix_package_tool
+echo "--- Installing Nix ---"
+if ! command -v nix >/dev/null 2>&1; then
+    run_confirm sudo dnf install -y nix nix-daemon
+    run_confirm sudo systemctl enable --now nix-daemon
+    echo "NOTE: open a new shell so /nix profile paths are picked up before running nix."
 else
-    echo "Shell is already fish."
+    echo "nix already installed."
 fi
 
-# 7. Homebrew Setup
-echo "--- Homebrew Setup ---"
-if [ ! -d "/home/linuxbrew/.linuxbrew" ]; then
-    run_confirm /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-echo "Configuring Homebrew environment..."
-if [ -d "/home/linuxbrew/.linuxbrew" ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-    echo "Installing brew packages..."
-    run_confirm brew install \
-        neovim \
-        yazi \
-        lazygit \
-        lazydocker \
-        fastfetch \
-        gemini-cli \
-        codex \
-        btop \
-        fd \
-        ripgrep \
-        bat \
-        atuin \
-        jq \
-        zoxide \
-        lsd \
-        tldr \
-        stow \
-        uv \
-        tree-sitter-cli \
-        markdownlint-cli2 \
-        ruff \
-        stylua \
-        fzf \
-        ouch
-else
-    echo "Homebrew not found, skipping package installation."
-fi
-
-# 8. Install Flatpaks
-echo "--- Installing Flatpaks ---"
-run_confirm flatpak install -y flathub \
-    md.obsidian.Obsidian \
-    com.stremio.Stremio \
-    com.surfshark.Surfshark \
-    org.kde.haruna
-
-# 9. Dotfiles Repository
+# 7. Dotfiles Repository
 echo "--- Dotfiles Repository ---"
-DOTFILES_DIR="$HOME/Dotfiles"
+DOTFILES_DIR="$HOME/dotfiles"
 if [ ! -d "$DOTFILES_DIR" ]; then
     run_confirm git clone https://github.com/SUBHAM-ROY/Dotfiles.git "$DOTFILES_DIR"
 else
@@ -151,52 +97,21 @@ else
     run_confirm git -C "$DOTFILES_DIR" pull
 fi
 
-# 10. Stowing
-echo "--- Stowing configurations ---"
-if [ -d "$HOME/Dotfiles" ]; then
-    run_confirm stow -d "$HOME/Dotfiles" fish
-    run_confirm stow -d "$HOME/Dotfiles" nvim
-    run_confirm stow -d "$HOME/Dotfiles" tmux
-    run_confirm stow -d "$HOME/Dotfiles" kitty
-    run_confirm stow -d "$HOME/Dotfiles" fastfetch
-    run_confirm stow -d "$HOME/Dotfiles" lazygit
-    run_confirm stow -d "$HOME/Dotfiles" yazi
-    run_confirm stow -d "$HOME/Dotfiles" ripgrep
-    echo "Tip: Install KDE themes/icons/Krohnkite from store before stowing."
-    run_confirm cp "$HOME/Dotfiles/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
-    run_confirm stow -d "$HOME/Dotfiles" kde
+# 8. Install Flatpaks (only things not packaged in Nix)
+echo "--- Installing Flatpaks ---"
+run_confirm flatpak install -y flathub \
+    com.surfshark.Surfshark \
+    org.kde.haruna
+
+# 9. Stowing KDE (only stowed config left; everything else is Nix-managed)
+echo "--- Stowing KDE ---"
+echo "Tip: install KDE themes/icons/Krohnkite from the KDE store before stowing."
+if [ -d "$DOTFILES_DIR/kde" ]; then
+    run_confirm cp "$DOTFILES_DIR/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
+    run_confirm stow -d "$DOTFILES_DIR" kde
 fi
 
-# 11. Fedora-specific fish config
-echo "--- Restoring Fedora-specific fish config ---"
-run_confirm ln -sf "$HOME/Dotfiles/System Restore/personal.fish" "$HOME/.config/fish/conf.d/personal.fish"
-
-# 12. Plugin Managers
-echo "--- Setting up Plugin Managers ---"
-# TPM
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    echo "Installing TPM..."
-    run_confirm git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-else
-    echo "TPM already exists"
-fi
-
-echo "Installing tmux plugins..."
-run_confirm ~/.tmux/plugins/tpm/bin/install_plugins
-
-# Fisher
-FISHER_CONFIG="$HOME/.config/fish/functions/fisher.fish"
-if [ ! -f "$FISHER_CONFIG" ]; then
-    echo "Installing Fisher..."
-    run_confirm fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-else
-    echo "Fisher already exists."
-fi
-
-echo "Installing Fisher plugins..."
-run_confirm fish -c "fisher update"
-
-# 13. Grub Theme & Config
+# 10. Grub Theme & Config
 echo "--- Grub Theme & Config ---"
 THEME_DIR="$HOME/Downloads/Elegant-grub2-themes"
 if [ ! -d "$THEME_DIR" ]; then
@@ -214,4 +129,12 @@ if [ -d "$THEME_DIR" ]; then
     run_confirm rm -rf "$THEME_DIR"
 fi
 
-echo "Restoration complete! Please restart your session or reboot to apply all changes."
+# Final instructions (highlighted in red)
+RED='\033[1;31m'
+NC='\033[0m'
+printf "\n${RED}>>> NEXT: open a new shell and bootstrap Home Manager:${NC}\n"
+printf "${RED}    nix --extra-experimental-features 'nix-command flakes' \\\\${NC}\n"
+printf "${RED}        run home-manager/master -- switch --flake $DOTFILES_DIR/nix/home-manager#sroy${NC}\n"
+printf "${RED}    After that you can use 'nh home switch' (alias: hms) for future updates.${NC}\n"
+printf "${RED}    Then restart your session or reboot to apply all changes.${NC}\n"
+

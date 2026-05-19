@@ -22,6 +22,7 @@
       rustc
       rustfmt
       uv
+      nodejs
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       # Linux-only (Darwin uses kqueue natively for LSP file watching)
