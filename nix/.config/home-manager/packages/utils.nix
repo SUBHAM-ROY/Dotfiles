@@ -10,5 +10,6 @@
     jq
     fd
     dust
+    delta
   ];
 }

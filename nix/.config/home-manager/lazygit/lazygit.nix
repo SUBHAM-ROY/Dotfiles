@@ -12,6 +12,9 @@
         nerdFontsVersion = 3;
       };
       git = {
+        pagers = [
+          { pager = "delta --dark --paging=never"; }
+        ];
         branchPrefix = "subham/";
       };
       notARepository = "skip";
@@ -21,6 +24,13 @@
           context = "localBranches";
           command = "git push origin {{.SelectedLocalBranch.Name}}";
           description = "Push selected branch to origin";
+        }
+        {
+          key = "<c-l>";
+          context = "localBranches";
+          command = "git pull --rebase origin {{.SelectedLocalBranch.Name}}";
+          description = "Pull from origin with rebase";
+          loadingText = "Pulling...";
         }
       ];
     };
