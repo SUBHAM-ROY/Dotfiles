@@ -42,7 +42,7 @@
       hms = "nh home switch";
       hmu = "nh home switch -u";
       hmg = "home-manager generations";
-      he = "cd ~/.config/home-manager && vi ~/.config/home-manager/home.nix";
+      he = "cd $NH_HOME_FLAKE && vi $NH_HOME_FLAKE/home.nix";
 
       gfc = "git branch -a | fzf | sed 's/remotes\\/origin\\///' | xargs git checkout";
       gfd = "git branch | fzf --multi | xargs git branch -D";
@@ -92,6 +92,6 @@
 
   # Only apply this symlink if we are on Linux
   home.file.".config/fish/conf.d/fedora.fish" = lib.mkIf pkgs.stdenv.isLinux {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/.config/home-manager/fish/fedora.fish";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/home-manager/fish/fedora.fish";
   };
 }

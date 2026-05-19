@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -93,6 +94,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    NH_HOME_FLAKE = "${config.home.homeDirectory}/dotfiles/nix/home-manager";
   };
 
   home.sessionPath = [

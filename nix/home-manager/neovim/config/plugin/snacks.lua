@@ -105,7 +105,7 @@ map(
 map(
   'n',
   '<leader>~',
-  function() Snacks.picker.files({ cwd = os.getenv('HOME') .. '/.config/home-manager' }) end,
+  function() Snacks.picker.files({ cwd = os.getenv('NH_HOME_FLAKE') }) end,
   { desc = 'Find Home Manager Files' }
 )
 map('n', '<leader>f', function() Snacks.picker.files({ hidden = true }) end, { desc = 'Find Files' })
