@@ -127,6 +127,7 @@
       "albert"
       "ouch"
       "unrar"
+      "cursor-cli"
     ];
 
   programs.zoxide = {
