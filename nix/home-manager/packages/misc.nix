@@ -14,7 +14,6 @@
       brave
       yt-dlp
       stremio-linux-shell
-      albert
       calibre
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [

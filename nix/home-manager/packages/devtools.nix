@@ -6,7 +6,7 @@
     [
       # LSPs
       nixd
-      pyright
+      pyrefly
       rust-analyzer
       markdown-oxide
 
