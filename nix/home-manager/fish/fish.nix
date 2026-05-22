@@ -38,7 +38,7 @@
       fdf = "fd -t f -u";
       fdd = "fd -t d -u";
 
-      ngc = "nh clean user";
+      ngc = "nix-collect-garbage -d";
       hms = "nh home switch";
       hmu = "nh home switch -u";
       hmg = "home-manager generations";

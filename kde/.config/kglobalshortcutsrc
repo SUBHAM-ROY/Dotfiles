@@ -336,6 +336,9 @@ _launch=Alt+Shift+F
 [services][org.kde.haruna.desktop]
 _launch=Alt+Shift+H
 
+[services][org.kde.krunner.desktop]
+_launch=Meta+Space\tAlt+F2\tSearch
+
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
 

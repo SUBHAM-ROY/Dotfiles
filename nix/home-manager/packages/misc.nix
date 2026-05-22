@@ -13,7 +13,6 @@
       codex
       brave
       yt-dlp
-      stremio-linux-shell
       calibre
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [

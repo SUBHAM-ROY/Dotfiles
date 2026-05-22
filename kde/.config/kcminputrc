@@ -4,3 +4,7 @@ NaturalScroll=true
 
 [Libinput][2][14][ETPS/2 Elantech Touchpad]
 DisableWhileTyping=false
+
+[Libinput][76][617][Subham’s Magic Mouse]
+PointerAcceleration=-0.750
+ScrollFactor=4

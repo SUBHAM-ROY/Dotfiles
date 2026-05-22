@@ -21,7 +21,7 @@
     };
     theme = {
       flavor = {
-        dark = "everforest-medium";
+        dark = "catppuccin-mocha";
       };
     };
   };

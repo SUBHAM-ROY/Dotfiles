@@ -5,7 +5,7 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "everforest-dark-medium";
+      color_theme = "everforest-dark-hard";
       proc_left = true;
       proc_tree = true;
       proc_aggregate = true;
