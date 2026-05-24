@@ -14,6 +14,7 @@
       brave
       yt-dlp
       calibre
+      spotify
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli

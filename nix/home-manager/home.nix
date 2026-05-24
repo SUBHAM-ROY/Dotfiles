@@ -128,6 +128,7 @@
       "ouch"
       "unrar"
       "cursor-cli"
+      "spotify"
     ];
 
   programs.zoxide = {

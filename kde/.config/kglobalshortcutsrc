@@ -342,6 +342,9 @@ _launch=Meta+Space\tAlt+F2\tSearch
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
 
+[services][spotify.desktop]
+_launch=Alt+Shift+M
+
 [services][steam.desktop]
 BigPicture=Alt+Shift+G
 Library=none
