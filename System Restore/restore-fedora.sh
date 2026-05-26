@@ -103,15 +103,7 @@ run_confirm flatpak install -y flathub \
     com.surfshark.Surfshark \
     org.kde.haruna
 
-# 9. Stowing KDE (only stowed config left; everything else is Nix-managed)
-echo "--- Stowing KDE ---"
-echo "Tip: install KDE themes/icons/Krohnkite from the KDE store before stowing."
-if [ -d "$DOTFILES_DIR/kde" ]; then
-    run_confirm cp "$DOTFILES_DIR/kde/wallpaper/office-lofi.jpg" "$HOME/Downloads/"
-    run_confirm stow -d "$DOTFILES_DIR" kde
-fi
-
-# 10. Grub Theme & Config
+# 9. Grub Theme & Config
 echo "--- Grub Theme & Config ---"
 THEME_DIR="$HOME/Downloads/Elegant-grub2-themes"
 if [ ! -d "$THEME_DIR" ]; then
@@ -132,9 +124,11 @@ fi
 # Final instructions (highlighted in red)
 RED='\033[1;31m'
 NC='\033[0m'
-printf "\n${RED}>>> NEXT: open a new shell and bootstrap Home Manager:${NC}\n"
-printf "${RED}    nix --extra-experimental-features 'nix-command flakes' \\\\${NC}\n"
-printf "${RED}        run home-manager/master -- switch --flake $DOTFILES_DIR/nix/home-manager#sroy${NC}\n"
-printf "${RED}    After that you can use 'nh home switch' (alias: hms) for future updates.${NC}\n"
-printf "${RED}    Then restart your session or reboot to apply all changes.${NC}\n"
+printf "\n${RED}>>> NEXT:${NC}\n"
+printf "${RED}    1. Install KDE themes/icons/Krohnkite from the KDE store manually.${NC}\n"
+printf "${RED}    2. Open a new shell and bootstrap Home Manager:${NC}\n"
+printf "${RED}         nix --extra-experimental-features 'nix-command flakes' \\\\${NC}\n"
+printf "${RED}             run home-manager/master -- switch --flake $DOTFILES_DIR/nix/home-manager#sroy${NC}\n"
+printf "${RED}       After that you can use 'nh home switch' (alias: hms) for future updates.${NC}\n"
+printf "${RED}    3. Restart your session or reboot to apply all changes.${NC}\n"
 

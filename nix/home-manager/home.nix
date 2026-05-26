@@ -20,6 +20,7 @@
     ./neovim/neovim.nix
     ./aerospace/aerospace.nix
     ./aria2/aria2.nix
+    ./kde/kde.nix
     ./packages/devtools.nix
     ./packages/utils.nix
     ./packages/misc.nix
