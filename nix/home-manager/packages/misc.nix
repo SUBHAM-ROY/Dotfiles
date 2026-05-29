@@ -18,5 +18,7 @@
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli
+      gh
+      jira-cli-go
     ];
 }
