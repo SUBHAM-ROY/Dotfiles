@@ -321,6 +321,9 @@ _launch=Alt+Shift+C
 [services][com.stremio.Stremio.desktop]
 _launch=Alt+Shift+S
 
+[services][io.github.Faugus.faugus-launcher.desktop]
+_launch=Alt+Shift+G
+
 [services][kitty.desktop]
 _launch=Alt+Shift+K
 
@@ -344,10 +347,6 @@ _launch=Meta+.
 
 [services][spotify.desktop]
 _launch=Alt+Shift+M
-
-[services][steam.desktop]
-BigPicture=Alt+Shift+G
-Library=none
 
 [services][systemsettings.desktop]
 _launch=Tools\tAlt+,

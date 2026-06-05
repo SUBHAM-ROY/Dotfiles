@@ -11,6 +11,7 @@
       obsidian
       gemini-cli
       codex
+      opencode
       brave
       yt-dlp
       calibre

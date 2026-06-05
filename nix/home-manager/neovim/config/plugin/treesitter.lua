@@ -16,7 +16,15 @@ require('nvim-treesitter').install({
   'typescript',
   'tsx',
   'markdown',
+  'markdown_inline',
   'python',
+  'rust',
+  'fish',
+  'bash',
+  'json',
+  'yaml',
+  'toml',
+  'nix',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
