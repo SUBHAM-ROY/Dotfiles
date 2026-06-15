@@ -7,6 +7,13 @@ Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,Switch to Last-Used Ke
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
+[feishin]
+0C6ECDB56DF97576D8101AAC3EE93C36-MediaStop=,none,feishin shortcut: MediaStop
+6231C5E2F3843F9D3A23F3F926FCE568-MediaPlayPause=,none,feishin shortcut: MediaPlayPause
+644BDECECDDAB1F60102A26556720678-MediaPrevTrack=,none,feishin shortcut: MediaPrevTrack
+F6F81F6D9B6656B00B548F4521289754-MediaNextTrack=,none,feishin shortcut: MediaNextTrack
+_k_friendly_name=Feishin
+
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
@@ -344,6 +351,10 @@ _launch=Meta+Space\tAlt+F2\tSearch
 
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
+
+[services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=
+OpenWithoutScreenshot=
 
 [services][spotify.desktop]
 _launch=Alt+Shift+M

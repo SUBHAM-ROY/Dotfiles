@@ -24,6 +24,7 @@
     ./packages/devtools.nix
     ./packages/utils.nix
     ./packages/misc.nix
+    ./beets/beets.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

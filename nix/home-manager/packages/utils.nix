@@ -11,5 +11,7 @@
     fd
     dust
     delta
+    mpv
+    borgbackup
   ];
 }

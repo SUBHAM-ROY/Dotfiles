@@ -16,6 +16,8 @@
       yt-dlp
       calibre
       spotify
+      feishin
+      kew
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli

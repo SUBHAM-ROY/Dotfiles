@@ -36,6 +36,7 @@
       # General
       set -g renumber-windows on
       set -g status-position top
+      set -g allow-passthrough on
 
       unbind x
       bind x kill-pane
