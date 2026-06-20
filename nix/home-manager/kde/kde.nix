@@ -12,7 +12,7 @@
 
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     workspace = {
       colorScheme = "Sweet";
@@ -27,6 +27,10 @@
         theme = "__aurorae__svg__Sweet-Dark-transparent";
       };
       wallpaper = ./office-lofi.jpg;
+    };
+
+    krunner = {
+      position = "center";
     };
 
     kscreenlocker = {
@@ -99,7 +103,7 @@
     configFile."kwinrc" = {
       Plugins.krohnkiteEnabled = true;
       "Script-krohnkite" = {
-        binaryTreeLayoutOrder = 0;
+        binaryTreeLayoutOrder = 3;
         cascadeLayoutOrder = 0;
         columnsLayoutOrder = 0;
         floatingLayoutOrder = 0;
@@ -109,6 +113,7 @@
         spreadLayoutOrder = 0;
         stackedLayoutOrder = 0;
         stairLayoutOrder = 0;
+        threeColumnLayoutOrder = 0;
         tileLayoutOrder = 2;
       };
     };

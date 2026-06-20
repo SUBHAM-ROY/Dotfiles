@@ -24,6 +24,7 @@
     ./packages/devtools.nix
     ./packages/utils.nix
     ./packages/misc.nix
+    ./haruna/haruna.nix
     ./beets/beets.nix
     ./opencode/opencode.nix
     ./keepassxc/keepassxc.nix

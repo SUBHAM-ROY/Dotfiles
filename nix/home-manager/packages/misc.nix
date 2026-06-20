@@ -15,7 +15,6 @@
       calibre
       spotify
       feishin
-      haruna
       kew
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [

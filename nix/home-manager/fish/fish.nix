@@ -41,6 +41,8 @@
       ngc = "nix-collect-garbage -d";
       hms = "nh home switch";
       hmu = "nh home switch -u";
+      nos = "nh os switch";
+      nou = "nh os switch -u";
       hmg = "home-manager generations";
       he = "cd $NH_HOME_FLAKE && vi $NH_HOME_FLAKE/home.nix";
 
@@ -91,7 +93,7 @@
   };
 
   # Only apply this symlink if we are on Linux
-  home.file.".config/fish/conf.d/fedora.fish" = lib.mkIf pkgs.stdenv.isLinux {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/home-manager/fish/fedora.fish";
+  home.file.".config/fish/conf.d/nix.fish" = lib.mkIf pkgs.stdenv.isLinux {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/home-manager/fish/nix.fish";
   };
 }

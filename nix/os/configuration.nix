@@ -174,6 +174,7 @@
     pciutils
     python3
     usbutils
+    wl-clipboard
     kdePackages.sddm-kcm
   ];
 
