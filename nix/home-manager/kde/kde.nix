@@ -12,7 +12,7 @@
 
   programs.plasma = {
     enable = true;
-    overrideConfig = false;
+    overrideConfig = true;
 
     workspace = {
       colorScheme = "Sweet";
