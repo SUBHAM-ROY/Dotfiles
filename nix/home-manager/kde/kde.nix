@@ -9,10 +9,12 @@
   home.packages = with pkgs; [
     candy-icons
     sweet-nova
+    kdePackages.krohnkite
   ];
 
   programs.plasma = {
     enable = true;
+    overrideConfig = true;
 
     workspace = {
       colorScheme = "Sweet";
@@ -42,6 +44,26 @@
         "Switch to Desktop 3" = "Meta+3";
         "Switch to Desktop 4" = "Meta+4";
         "Switch to Desktop 5" = "Meta+5";
+        KrohnkiteFloatAll = "Meta+Shift+F";
+        KrohnkiteFocusDown = "Meta+J";
+        KrohnkiteFocusLeft = "Meta+H";
+        KrohnkiteFocusRight = "Meta+L";
+        KrohnkiteFocusUp = "Meta+K";
+        KrohnkiteIncrease = "Meta+I";
+        KrohnkiteMonocleLayout = "Meta+M";
+        KrohnkiteNextLayout = "Meta+\\\\";
+        KrohnkitePreviousLayout = "Meta+|";
+        KrohnkiteRotate = "Meta+]";
+        KrohnkiteSetMaster = "Meta+Return";
+        KrohnkiteShiftDown = "Meta+Shift+J";
+        KrohnkiteShiftLeft = "Meta+Shift+H";
+        KrohnkiteShiftRight = "Meta+Shift+L";
+        KrohnkiteShiftUp = "Meta+Shift+K";
+        KrohnkiteToggleFloat = "Meta+F";
+        KrohnkiteGrowHeight = "Meta+Ctrl+J";
+        KrohnkitegrowWidth = "Meta+Ctrl+L";
+        KrohnkiteShrinkHeight = "Meta+Ctrl+K";
+        KrohnkiteShrinkWidth = "Meta+Ctrl+H";
       };
       plasmashell = {
         "activate task manager entry 1" = "Alt+1";
@@ -63,6 +85,23 @@
         "Meta+Space"
         "Search"
       ];
+    };
+
+    configFile."kwinrc" = {
+      Plugins.krohnkiteEnabled = true;
+      "Script-krohnkite" = {
+        binaryTreeLayoutOrder = 0;
+        cascadeLayoutOrder = 0;
+        columnsLayoutOrder = 0;
+        floatingLayoutOrder = 0;
+        monocleLayoutOrder = 1;
+        quarterLayoutOrder = 0;
+        spiralLayoutOrder = 0;
+        spreadLayoutOrder = 0;
+        stackedLayoutOrder = 0;
+        stairLayoutOrder = 0;
+        tileLayoutOrder = 2;
+      };
     };
 
     panels = [
