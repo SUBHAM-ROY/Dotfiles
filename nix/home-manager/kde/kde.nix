@@ -55,5 +55,31 @@
       ];
     };
 
+    panels = [
+      {
+        location = "top";
+        height = 32;
+        widgets = [
+          {
+            pager = {
+              general = {
+                displayedText = "desktopNumber";
+                showOnlyCurrentScreen = true;
+              };
+            };
+          }
+          {
+            iconTasks = {
+              launchers = [ ];
+            };
+          }
+          "org.kde.plasma.appmenu"
+          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.digitalclock"
+        ];
+      }
+    ];
+
   };
 }
