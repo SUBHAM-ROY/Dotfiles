@@ -33,7 +33,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "roynix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -74,6 +74,13 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+  };
+
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings.General.Experimental = true;
   };
 
   # NVIDIA Optimus (PRIME Render Offload)
@@ -136,9 +143,7 @@
       "wheel"
       "podman"
     ];
-    packages = with pkgs; [
-      git
-    ];
+    # packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
@@ -163,6 +168,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    ffmpeg-full
+    git
+    lsof
+    pciutils
+    python3
+    usbutils
     kdePackages.sddm-kcm
   ];
 

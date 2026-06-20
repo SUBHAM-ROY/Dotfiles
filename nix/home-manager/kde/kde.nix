@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }:
 
@@ -19,13 +17,14 @@
     workspace = {
       colorScheme = "Sweet";
       iconTheme = "candy-icons";
+      theme = "Sweet-mars";
       cursor = {
         theme = "Sweet-cursors";
         size = 24;
       };
       windowDecorations = {
         library = "org.kde.kwin.aurorae";
-        theme = "__aurorae__svg__Sweet-Dark";
+        theme = "__aurorae__svg__Sweet-Dark-transparent";
       };
       wallpaper = ./office-lofi.jpg;
     };
@@ -34,9 +33,16 @@
       appearance.wallpaper = ./office-lofi.jpg;
     };
 
-    kwin.virtualDesktops.number = 5;
+    kwin.virtualDesktops = {
+      number = 5;
+      rows = 1;
+    };
 
     shortcuts = {
+      ksmserver."Lock Session" = [
+        "Alt+Shift+L"
+        "Screensaver"
+      ];
       kwin = {
         "Window Close" = "Meta+Q";
         "Switch to Desktop 1" = "Meta+1";
@@ -44,6 +50,8 @@
         "Switch to Desktop 3" = "Meta+3";
         "Switch to Desktop 4" = "Meta+4";
         "Switch to Desktop 5" = "Meta+5";
+        "Window to Next Desktop" = "Ctrl+Alt+L";
+        "Window to Previous Desktop" = "Ctrl+Alt+H";
         KrohnkiteFloatAll = "Meta+Shift+F";
         KrohnkiteFocusDown = "Meta+J";
         KrohnkiteFocusLeft = "Meta+H";
@@ -81,6 +89,7 @@
       "services/org.kde.haruna.desktop"._launch = "Alt+Shift+H";
       "services/org.kde.spectacle.desktop"._launch = "Print";
       "services/systemsettings.desktop"._launch = "Alt+.";
+      "services/org.kde.discover.desktop".Updates = "Alt+Shift+U";
       "services/org.kde.krunner.desktop"._launch = [
         "Meta+Space"
         "Search"

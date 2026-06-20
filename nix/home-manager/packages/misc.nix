@@ -9,13 +9,13 @@
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       obsidian
-      gemini-cli
       codex
       brave
       yt-dlp
       calibre
       spotify
       feishin
+      haruna
       kew
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
