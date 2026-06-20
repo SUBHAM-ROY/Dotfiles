@@ -85,8 +85,16 @@
     settings.General.Experimental = true;
   };
 
+  # Intel media driver for hardware video acceleration
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-media-driver ];
+  };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   # NVIDIA Optimus (PRIME Render Offload)
-  hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
