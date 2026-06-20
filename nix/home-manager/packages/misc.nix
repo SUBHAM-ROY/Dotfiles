@@ -17,7 +17,6 @@
       spotify
       feishin
       kew
-      keepassxc
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli
