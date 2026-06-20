@@ -18,6 +18,7 @@
       colorScheme = "Sweet";
       iconTheme = "candy-icons";
       theme = "Sweet-mars";
+      soundTheme = "freedesktop";
       cursor = {
         theme = "Sweet-cursors";
         size = 24;
@@ -40,6 +41,15 @@
     kwin.virtualDesktops = {
       number = 5;
       rows = 1;
+    };
+
+    powerdevil = {
+      AC = {
+        autoSuspend.action = "nothing";
+        turnOffDisplay.idleTimeout = "never";
+        dimDisplay.enable = false;
+        whenLaptopLidClosed = "doNothing";
+      };
     };
 
     shortcuts = {
