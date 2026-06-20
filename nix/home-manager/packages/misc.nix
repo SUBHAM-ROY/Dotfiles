@@ -11,13 +11,13 @@
       obsidian
       gemini-cli
       codex
-      opencode
       brave
       yt-dlp
       calibre
       spotify
       feishin
       kew
+      keepassxc
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli

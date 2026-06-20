@@ -25,6 +25,7 @@
     ./packages/utils.nix
     ./packages/misc.nix
     ./beets/beets.nix
+    ./opencode/opencode.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -96,6 +97,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    NH_OS_FLAKE = "${config.home.homeDirectory}/dotfiles/nix/os";
     NH_HOME_FLAKE = "${config.home.homeDirectory}/dotfiles/nix/home-manager";
   };
 
