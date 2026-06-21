@@ -46,6 +46,8 @@
       hmg = "home-manager generations";
       he = "cd $NH_HOME_FLAKE && vi $NH_HOME_FLAKE/home.nix";
 
+      docks = "lazydocker";
+
       gfc = "git branch -a | fzf | sed 's/remotes\\/origin\\///' | xargs git checkout";
       gfd = "git branch | fzf --multi | xargs git branch -D";
     };
@@ -69,6 +71,11 @@
       set -gx HOMEBREW_UPGRADE_GREEDY 1
       set -gx HOMEBREW_API_AUTO_UPDATE_SECS 86400
       set -gx HOMEBREW_AUTO_UPDATE_SECS 259200
+
+      # Podman socket (only set on Linux where podman is used)
+      if test -e /var/run/podman/podman.sock
+          set -gx DOCKER_HOST unix:///var/run/podman/podman.sock
+      end
 
       # Editor
       set -gx EDITOR ${pkgs.neovim}/bin/nvim

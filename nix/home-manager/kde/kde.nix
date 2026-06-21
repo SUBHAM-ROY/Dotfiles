@@ -14,6 +14,12 @@
     enable = true;
     overrideConfig = true;
 
+    startup.startupScript."restart-plasmashell" = {
+      priority = 8;
+      runAlways = true;
+      text = "systemctl --user restart plasma-plasmashell";
+    };
+
     workspace = {
       colorScheme = "Sweet";
       iconTheme = "candy-icons";

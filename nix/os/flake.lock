@@ -18,13 +18,28 @@
         "type": "github"
       }
     },
+    "nix-flatpak": {
+      "locked": {
+        "lastModified": 1780908363,
+        "narHash": "sha256-llGS4y3Qh1eUkli3/Y2VY9FV3GOUKFZR1E2BDftt45Q=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "1df08625f0f8c7d6e300a0e5df7955bbb877d809",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1781987378,
-        "narHash": "sha256-3oA08ziHWeVqiRcwXHYSAEpZm7rdx08w0ih2g4aVhYg=",
+        "lastModified": 1782069220,
+        "narHash": "sha256-3pFVXq2eCqrfCatojTaaTwrEvKTg9i2Q7fHdDgEVj9c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c9d6f532c7ebb233a91c1f837961bcf968821e4e",
+        "rev": "e71fd6dac918413da5b218ba93b68a106171d336",
         "type": "github"
       },
       "original": {
@@ -53,6 +68,7 @@
     "root": {
       "inputs": {
         "grub2-themes": "grub2-themes",
+        "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2"
       }
     }

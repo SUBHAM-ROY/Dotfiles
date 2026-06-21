@@ -13,5 +13,6 @@
     delta
     mpv
     borgbackup
+    lazydocker
   ];
 }

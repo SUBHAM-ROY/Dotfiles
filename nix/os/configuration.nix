@@ -76,7 +76,22 @@
   ];
 
   # Enable flatpak
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.heroicgameslauncher.hgl"
+      "com.github.tchx84.Flatseal"
+      "org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/25.08"
+    ];
+    overrides = {
+      "com.heroicgameslauncher.hgl" = {
+        Environment = {
+          MANGOHUD = "1";
+          MANGOHUD_CONFIGFILE = "${config.users.users.sroy.home}/.config/MangoHud/mango.conf";
+        };
+      };
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
