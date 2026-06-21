@@ -151,6 +151,33 @@
     };
   };
 
+  # Samba file sharing
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      share = {
+        comment = "Roynix Samba Share";
+        path = "/home/sroy/Samba";
+        "create mask" = "0644";
+        "directory mask" = "0644";
+        "valid users" = "sroy";
+      };
+    };
+  };
+
+  # Enable tailscaled
+  services.tailscale.enable = true;
+
+  # Navidrome music streaming server
+  services.navidrome = {
+    enable = true;
+    settings = {
+      MusicFolder = "/srv/music";
+      Address = "0.0.0.0";
+    };
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -173,6 +200,7 @@
       "networkmanager"
       "wheel"
       "podman"
+      "samba"
     ];
     # packages = with pkgs; [ ];
   };

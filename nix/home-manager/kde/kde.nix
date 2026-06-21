@@ -33,7 +33,7 @@
         library = "org.kde.kwin.aurorae";
         theme = "__aurorae__svg__Sweet-Dark-transparent";
       };
-      wallpaper = ./office-lofi.jpg;
+      wallpaper = ./wallpapers/astronaut.png;
     };
 
     krunner = {
@@ -41,7 +41,7 @@
     };
 
     kscreenlocker = {
-      appearance.wallpaper = ./office-lofi.jpg;
+      appearance.wallpaper = ./wallpapers/astronaut.png;
     };
 
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
