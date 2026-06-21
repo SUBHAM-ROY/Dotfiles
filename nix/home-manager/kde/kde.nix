@@ -38,6 +38,8 @@
       appearance.wallpaper = ./office-lofi.jpg;
     };
 
+    session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
+
     kwin.virtualDesktops = {
       number = 5;
       rows = 1;

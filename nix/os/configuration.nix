@@ -49,7 +49,10 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = [ pkgs.xterm ];
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
@@ -72,11 +75,17 @@
     plasma-browser-integration
   ];
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  # Enable udev rules for Steam hardware (controllers, etc.)
+  hardware.steam-hardware.enable = true;
 
   # Bluetooth
   hardware.bluetooth = {
@@ -186,11 +195,6 @@
     sddm-astronaut
     kdePackages.qtmultimedia
   ];
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
