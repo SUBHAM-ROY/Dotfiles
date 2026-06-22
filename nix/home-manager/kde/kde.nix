@@ -6,32 +6,27 @@
 lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [
     candy-icons
-    sweet-nova
     kdePackages.krohnkite
+    kara
+    nordic
   ];
 
   programs.plasma = {
-    enable = true;
+    enable = false;
     overrideConfig = true;
 
-    startup.startupScript."restart-plasmashell" = {
-      priority = 8;
-      runAlways = true;
-      text = "systemctl --user restart plasma-plasmashell";
-    };
-
     workspace = {
-      colorScheme = "Sweet";
+      colorScheme = "NordicDarker";
       iconTheme = "candy-icons";
-      theme = "Sweet-mars";
+      theme = "default";
       soundTheme = "freedesktop";
       cursor = {
-        theme = "Sweet-cursors";
+        theme = "Nordic-cursors";
         size = 24;
       };
       windowDecorations = {
-        library = "org.kde.kwin.aurorae";
-        theme = "__aurorae__svg__Sweet-Dark-transparent";
+        library = "org.kde.kwin.aurorae.v2";
+        theme = "__aurorae__svg__Nordic";
       };
       wallpaper = ./wallpapers/astronaut.png;
     };
@@ -150,22 +145,59 @@ lib.mkIf pkgs.stdenv.isLinux {
         height = 32;
         widgets = [
           {
-            pager = {
-              general = {
-                displayedText = "desktopNumber";
-                showOnlyCurrentScreen = true;
-              };
+            iconTasks = {
+              launchers = [ ];
+              appearance.fill = false;
             };
           }
           {
-            iconTasks = {
-              launchers = [ ];
+            panelSpacer = {
+              expanding = false;
+              length = 30;
             };
           }
           "org.kde.plasma.appmenu"
-          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.panelspacer"
+          {
+            name = "org.dhruv8sh.kara";
+            config = {
+              general = {
+                type = 0;
+                spacing = 7;
+              };
+              appearance = {
+                altColor = "143,188,187";
+                defaultAltTextColors = false;
+                plasmaTxtColors = false;
+                txtColor = "129,161,193";
+              };
+              type1 = {
+                t1activeHeight = 18;
+                t1activeWidth = 18;
+                t1height = 18;
+                t1width = 18;
+              };
+            };
+          }
+          "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
-          "org.kde.plasma.digitalclock"
+          {
+            panelSpacer = {
+              expanding = false;
+              length = 30;
+            };
+          }
+          {
+            digitalClock = {
+              date.format = "longDate";
+              time.showSeconds = "always";
+              font = {
+                family = "Noto Sans";
+                size = 12;
+                weight = 600;
+              };
+            };
+          }
         ];
       }
     ];
@@ -173,16 +205,15 @@ lib.mkIf pkgs.stdenv.isLinux {
     desktop = {
       widgets = [
         {
-          name = "org.kde.plasma.analogclock";
+          name = "com.github.prayag2.modernclock";
           position = {
-            horizontal = 1472;
-            vertical = 0;
+            horizontal = 1424;
+            vertical = 16;
           };
           size = {
-            width = 368;
-            height = 272;
+            width = 448;
+            height = 256;
           };
-          config.General.showSecondHand = true;
         }
         {
           systemMonitor = {
