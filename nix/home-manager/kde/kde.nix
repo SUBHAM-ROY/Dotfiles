@@ -1,9 +1,9 @@
 {
+  lib,
   pkgs,
   ...
 }:
-
-{
+lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [
     candy-icons
     sweet-nova
@@ -133,6 +133,14 @@
         stairLayoutOrder = 0;
         threeColumnLayoutOrder = 0;
         tileLayoutOrder = 2;
+      };
+    };
+
+    configFile."kuriikwsfilterrc" = {
+      General.DefaultWebShortcut = "google";
+      General.KeywordDelimiter = {
+        value = "\\s";
+        escapeValue = false;
       };
     };
 

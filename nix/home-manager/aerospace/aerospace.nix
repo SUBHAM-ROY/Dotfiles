@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
-{
-  programs.aerospace = lib.mkIf pkgs.stdenv.isDarwin {
+lib.mkIf pkgs.stdenv.isDarwin {
+  programs.aerospace = {
     enable = true;
 
     settings = {

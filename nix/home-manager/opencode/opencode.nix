@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
-{
-  programs.opencode = lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.isLinux {
+  programs.opencode = {
     enable = true;
     settings = {
       permission = {

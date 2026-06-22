@@ -4,8 +4,8 @@
   ...
 }:
 
-{
-  programs.mangohud = lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.isLinux {
+  programs.mangohud = {
     enable = true;
     settings = {
       fps_limit = "60,90";
