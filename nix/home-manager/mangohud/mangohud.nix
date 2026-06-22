@@ -17,6 +17,7 @@
       gpu_list = 1;
       frame_timing = 0;
       background_alpha = "0";
+      winesync = true;
     };
   };
 }
