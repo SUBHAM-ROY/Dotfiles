@@ -6,9 +6,9 @@
     [
       stow
       nerd-fonts.meslo-lg
+      obsidian
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
-      obsidian
       codex
       brave
       yt-dlp

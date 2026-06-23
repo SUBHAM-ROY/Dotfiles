@@ -231,6 +231,7 @@
     ffmpeg-full
     git
     lsof
+    efibootmgr
     pciutils
     python3
     usbutils
