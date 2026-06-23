@@ -13,6 +13,7 @@
       };
       GUI = {
         MinimizeOnClose = true;
+        MinimizeToTray = true;
         ShowExpiredEntriesOnDatabaseUnlockOffsetDays = 0;
         ShowTrayIcon = true;
         TrayIconAppearance = "monochrome-dark";
