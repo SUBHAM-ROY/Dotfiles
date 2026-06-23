@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -6,10 +7,15 @@
 lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [
     candy-icons
-    kdePackages.krohnkite
     kara
+    kdePackages.krohnkite
     nordic
+    plasma-panel-colorizer
   ];
+
+  home.file."Pictures/wallpapers/astronaut.png".source = ./wallpapers/astronaut.png;
+  home.file."Pictures/wallpapers/office-lofi.jpg".source = ./wallpapers/office-lofi.jpg;
+  home.file.".config/panel-colorizer/overrides.json".source = ./panel-colorizer/overrides.json;
 
   programs.plasma = {
     enable = false;
@@ -28,7 +34,10 @@ lib.mkIf pkgs.stdenv.isLinux {
         library = "org.kde.kwin.aurorae.v2";
         theme = "__aurorae__svg__Nordic";
       };
+      wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/astronaut.png";
     };
+
+    kscreenlocker.appearance.wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/astronaut.png";
 
     krunner = {
       position = "center";
@@ -181,6 +190,18 @@ lib.mkIf pkgs.stdenv.isLinux {
               expanding = false;
               length = 30;
             };
+          }
+          {
+            name = "luisbocanegra.panel.colorizer";
+            config =
+              let
+                preset = builtins.fromJSON (builtins.readFile ./panel-colorizer/nord.json);
+              in
+              {
+                General = {
+                  globalSettings = builtins.toJSON preset.globalSettings;
+                };
+              };
           }
           {
             digitalClock = {

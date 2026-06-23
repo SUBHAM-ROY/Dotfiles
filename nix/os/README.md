@@ -41,11 +41,10 @@ nh home switch
 
 ## 5. Install external KDE plugins
 
-Everything from `kde.nix` packages (`candy-icons`, `nordic`, `kdePackages.krohnkite`, `kara`)
+Everything from `kde.nix` packages (`candy-icons`, `nordic`, `kdePackages.krohnkite`, `kara`, `plasma-panel-colorizer`)
 is already handled by Nix. Manually install from KDE Store:
 
 - **Modern Clock** desktop widget (`com.github.prayag2.modernclock`)
-- **Panel Colorizer** (`luisbocanegra.panel.colorizer`, see step 7)
 
 ## 6. Apply plasma-manager config once
 
@@ -72,17 +71,8 @@ reload-plasma
 
 ## 7. Colorizer
 
-Install **Panel Colorizer** (`luisbocanegra.panel.colorizer`) from KDE Store and run it once
-(so it creates `~/.config/panel-colorizer/presets/`), then symlink the Nord preset into it:
+Nord preset and global overrides are applied by home-manager.
 
-```bash
-ln -s ~/dotfiles/nix/home-manager/kde/panel-colorizer/presets/Nord-Colorizer ~/.config/panel-colorizer/presets/Nord-Colorizer
-```
-
-Load **Nord-Colorizer** in the widget's Presets settings.
-
-## 8. Post-setup
-
-Set wallpaper in System Settings → Appearance → Wallpaper, and lockscreen image in System Settings → Screen Locking → Appearance (both use `astronaut.png` in `nix/home-manager/kde/wallpapers/`).
+Open Panel Colorizer settings → Global Overrides → Import → Apply.
 
 ## Now enjoy your pretty NixOS! ❄️🎉
