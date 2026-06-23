@@ -28,15 +28,10 @@ lib.mkIf pkgs.stdenv.isLinux {
         library = "org.kde.kwin.aurorae.v2";
         theme = "__aurorae__svg__Nordic";
       };
-      wallpaper = ./wallpapers/astronaut.png;
     };
 
     krunner = {
       position = "center";
-    };
-
-    kscreenlocker = {
-      appearance.wallpaper = ./wallpapers/astronaut.png;
     };
 
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
