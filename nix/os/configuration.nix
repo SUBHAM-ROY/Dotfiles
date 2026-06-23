@@ -8,6 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./services.nix
   ];
 
   # Bootloader.
@@ -48,20 +49,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-    enable = true;
-    excludePackages = [ pkgs.xterm ];
-  };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "sddm-astronaut-theme";
-  };
-  services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     khelpcenter
     kate
@@ -76,29 +63,21 @@
     plasma-browser-integration
   ];
 
-  # Enable flatpak
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.heroicgameslauncher.hgl"
-      "com.github.tchx84.Flatseal"
-      "org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/25.08"
-    ];
-    overrides = {
-      "com.heroicgameslauncher.hgl" = {
-        Environment = {
-          MANGOHUD = "1";
-          MANGOHUD_CONFIGFILE = "${config.users.users.sroy.home}/.config/MangoHud/mango.conf";
-        };
-      };
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    ffmpeg-full
+    git
+    lsof
+    efibootmgr
+    pciutils
+    python3
+    usbutils
+    wl-clipboard
+    kdePackages.kdialog
+    sddm-astronaut
+    kdePackages.qtmultimedia
+  ];
 
   # Enable udev rules for Steam hardware (controllers, etc.)
   hardware.steam-hardware.enable = true;
@@ -131,16 +110,6 @@
       nvidiaBusId = "PCI:1@0:0:0";
     };
   };
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
 
   # Enable podman containers
   virtualisation = {
@@ -150,47 +119,6 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-  };
-
-  # Samba file sharing
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      share = {
-        comment = "Roynix Samba Share";
-        path = "/home/sroy/Samba";
-        "create mask" = "0644";
-        "directory mask" = "0644";
-        "valid users" = "sroy";
-      };
-    };
-  };
-
-  # Enable tailscaled
-  services.tailscale.enable = true;
-
-  # Navidrome music streaming server
-  services.navidrome = {
-    enable = true;
-    settings = {
-      MusicFolder = "/srv/music";
-      Address = "0.0.0.0";
-    };
-  };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -224,22 +152,6 @@
     dates = "weekly";
     options = "--delete-generations +5";
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    ffmpeg-full
-    git
-    lsof
-    efibootmgr
-    pciutils
-    python3
-    usbutils
-    wl-clipboard
-    kdePackages.kdialog
-    sddm-astronaut
-    kdePackages.qtmultimedia
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
