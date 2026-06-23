@@ -4,7 +4,6 @@
   home.packages =
     with pkgs;
     [
-      stow
       nerd-fonts.meslo-lg
       obsidian
     ]
