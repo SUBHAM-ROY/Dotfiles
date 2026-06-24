@@ -82,6 +82,9 @@
   # Enable udev rules for Steam hardware (controllers, etc.)
   hardware.steam-hardware.enable = true;
 
+  # Enable udev rules for qmk keyboards (in usevia.app)
+  hardware.keyboard.qmk.enable = true;
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;

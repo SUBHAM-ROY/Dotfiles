@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -50,12 +48,14 @@
 
       gfc = "git branch -a | fzf | sed 's/remotes\\/origin\\///' | xargs git checkout";
       gfd = "git branch | fzf --multi | xargs git branch -D";
+
+      "reload-plasma" = "systemctl --user restart plasma-plasmashell";
     };
 
     functions = {
-      vplug = ''
-        nvim ~/.config/nvim/plugins/$argv[1].lua
-      '';
+      vplug = "nvim ~/.config/nvim/plugins/$argv[1].lua";
+      timer = "systemd-run --user --on-active=$argv[1] aplay -d 3 ~/Downloads/timer.wav";
+      sleep_after = "systemd-run --on-active=$argv[1] sudo systemctl suspend";
     };
 
     shellInit = ''
@@ -97,10 +97,5 @@
         name = "tide";
       }
     ];
-  };
-
-  # Only apply this symlink if we are on Linux
-  home.file.".config/fish/conf.d/nix.fish" = lib.mkIf pkgs.stdenv.isLinux {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/home-manager/fish/nix.fish";
   };
 }

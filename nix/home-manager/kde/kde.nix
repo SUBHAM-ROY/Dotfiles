@@ -37,7 +37,12 @@ lib.mkIf pkgs.stdenv.isLinux {
       wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/astronaut.png";
     };
 
-    kscreenlocker.appearance.wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/astronaut.png";
+    kscreenlocker = {
+      autoLock = true;
+      timeout = 20;
+      passwordRequiredDelay = 3;
+      appearance.wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/astronaut.png";
+    };
 
     krunner = {
       position = "center";
