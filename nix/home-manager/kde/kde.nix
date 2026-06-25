@@ -69,6 +69,10 @@ lib.mkIf pkgs.stdenv.isLinux {
         "Alt+Shift+L"
         "Screensaver"
       ];
+      ksmserver.Sleep = [
+        "Ctrl+Alt+S"
+        "Sleep"
+      ];
       kwin = {
         "Window Close" = "Meta+Q";
         "Switch to Desktop 1" = "Meta+1";
@@ -110,6 +114,7 @@ lib.mkIf pkgs.stdenv.isLinux {
       "services/kitty.desktop"._launch = "Alt+Shift+K";
       "services/obsidian.desktop"._launch = "Alt+Shift+O";
       "services/calibre-gui.desktop"._launch = "Alt+Shift+C";
+      "services/com.heroicgameslauncher.hgl.desktop"._launch = "Alt+Shift+G";
       "services/spotify.desktop"._launch = "Alt+Shift+M";
       "services/org.kde.dolphin.desktop"._launch = "Alt+Shift+F";
       "services/org.kde.haruna.desktop"._launch = "Alt+Shift+H";

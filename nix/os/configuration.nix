@@ -34,6 +34,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
+  boot.tmp.useTmpfs = true;
 
   # Enable networking
   networking.hostName = "roynix"; # Define your hostname.
