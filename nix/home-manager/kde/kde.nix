@@ -314,24 +314,24 @@ lib.mkIf pkgs.stdenv.isLinux {
             title = "Disk Usage";
             sensors = [
               {
-                name = "disk/f57a50c1-7903-4f68-91c6-dedcad22a611/free";
+                name = "disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/free";
                 color = "0,66,0";
                 label = "Free";
               }
               {
-                name = "disk/f57a50c1-7903-4f68-91c6-dedcad22a611/used";
+                name = "disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/used";
                 color = "85,0,0";
                 label = "Used";
               }
             ];
-            totalSensors = [ "disk/f57a50c1-7903-4f68-91c6-dedcad22a611/total" ];
+            totalSensors = [ "disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/total" ];
             settings = {
-              Sensors.highPrioritySensorIds = "[\"disk/f57a50c1-7903-4f68-91c6-dedcad22a611/free\", \"disk/f57a50c1-7903-4f68-91c6-dedcad22a611/used\"]";
-              Sensors.totalSensors = "[\"disk/f57a50c1-7903-4f68-91c6-dedcad22a611/total\"]";
+              Sensors.highPrioritySensorIds = "[\"disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/free\", \"disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/used\"]";
+              Sensors.totalSensors = "[\"disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/total\"]";
               Appearance.updateRateLimit = 3000;
-              SensorLabels."disk/f57a50c1-7903-4f68-91c6-dedcad22a611/freePercent" = "Free %";
-              SensorLabels."disk/f57a50c1-7903-4f68-91c6-dedcad22a611/usedPercent" = "Used %";
-              SensorLabels."disk/f57a50c1-7903-4f68-91c6-dedcad22a611/total" = "Total";
+              SensorLabels."disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/freePercent" = "Free %";
+              SensorLabels."disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/usedPercent" = "Used %";
+              SensorLabels."disk/ca2b5ab0-fe47-49a3-b2dc-b9e3386c3ff7/total" = "Total";
               SensorLabels."disk/nvme0n1/total" = "Total";
             };
           };

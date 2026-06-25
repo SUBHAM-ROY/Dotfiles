@@ -80,6 +80,9 @@
     kdePackages.qtmultimedia
   ];
 
+  # KDE Partition Manager
+  programs.partition-manager.enable = true;
+
   # Enable udev rules for Steam hardware (controllers, etc.)
   hardware.steam-hardware.enable = true;
 
@@ -164,5 +167,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }

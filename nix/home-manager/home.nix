@@ -27,7 +27,6 @@
     ./haruna/haruna.nix
     ./beets/beets.nix
     ./opencode/opencode.nix
-    ./keepassxc/keepassxc.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

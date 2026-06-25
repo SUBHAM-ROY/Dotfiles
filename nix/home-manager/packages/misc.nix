@@ -10,6 +10,7 @@
     ++ lib.optionals pkgs.stdenv.isLinux [
       codex
       brave
+      keepassxc
       yt-dlp
       calibre
       spotify
