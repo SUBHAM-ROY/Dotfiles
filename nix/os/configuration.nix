@@ -137,6 +137,7 @@
       "wheel"
       "podman"
       "samba"
+      "navidrome"
     ];
     # packages = with pkgs; [ ];
   };

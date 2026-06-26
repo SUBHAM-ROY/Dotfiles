@@ -59,7 +59,7 @@
     settings = {
       share = {
         comment = "Roynix Samba Share";
-        path = "/home/sroy/Samba";
+        path = "${config.users.users.sroy.home}/Samba";
         "create mask" = "0644";
         "directory mask" = "0644";
         "valid users" = "sroy";
@@ -73,6 +73,7 @@
   # Navidrome music streaming server
   services.navidrome = {
     enable = true;
+    environmentFile = "/var/lib/navidrome/env";
     settings = {
       MusicFolder = "/srv/music";
       Address = "0.0.0.0";
