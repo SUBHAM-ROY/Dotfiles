@@ -9,8 +9,7 @@ lib.mkIf pkgs.stdenv.isLinux {
   programs.beets = {
     enable = true;
     settings = {
-      directory = "${config.home.homeDirectory}/Data/Music";
-      library = "${config.home.homeDirectory}/Data/Music/library.db";
+      directory = "/srv/music";
       plugins = [
         "fish"
         "musicbrainz"
@@ -35,3 +34,4 @@ lib.mkIf pkgs.stdenv.isLinux {
     };
   };
 }
+

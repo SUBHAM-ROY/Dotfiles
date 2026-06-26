@@ -18,7 +18,8 @@ lib.mkIf pkgs.stdenv.isLinux {
       - For simple queries, use `jq`
       - For complex Python-based processing, use `python3 -m json.tool`
 
-      ## Sudo Commands
+      ## Commands
+      - When the user asks to copy a command, use `wl-copy`: `echo '<command>' | wl-copy`
       - When a command requires sudo, pipe the password through `kdialog`: `kdialog --password "Enter password" | sudo -S <cmd>`
     '';
 

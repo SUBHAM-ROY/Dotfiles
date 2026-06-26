@@ -18,6 +18,7 @@
   # Enable flatpak
   services.flatpak = {
     enable = true;
+    update.onActivation = true;
     packages = [
       "com.heroicgameslauncher.hgl"
       "com.github.tchx84.Flatseal"
