@@ -36,6 +36,9 @@
   boot.kernelModules = [ "ntsync" ];
   boot.tmp.useTmpfs = true;
 
+  # Enable zram swap (compressed RAM swap)
+  zramSwap.enable = true;
+
   # Enable networking
   networking.hostName = "roynix"; # Define your hostname.
   networking.networkmanager.enable = true;
