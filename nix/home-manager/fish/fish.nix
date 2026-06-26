@@ -36,13 +36,10 @@
       fdf = "fd -t f -u";
       fdd = "fd -t d -u";
 
-      ngc = "nix-collect-garbage -d";
       hms = "nh home switch";
       hmu = "nh home switch -u";
       nos = "nh os switch";
       nou = "nh os switch -u";
-      hmg = "home-manager generations";
-      he = "cd $NH_HOME_FLAKE && vi $NH_HOME_FLAKE/home.nix";
 
       docks = "lazydocker";
 

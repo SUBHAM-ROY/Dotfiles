@@ -105,8 +105,8 @@ map(
 map(
   'n',
   '<leader>~',
-  function() Snacks.picker.files({ cwd = os.getenv('NH_HOME_FLAKE') }) end,
-  { desc = 'Find Home Manager Files' }
+  function() Snacks.picker.files({ cwd = os.getenv('NH_FLAKE') }) end,
+  { desc = 'Find Nix Files' }
 )
 map('n', '<leader>f', function() Snacks.picker.files({ hidden = true }) end, { desc = 'Find Files' })
 map('n', '<leader>r', function() Snacks.picker.recent() end, { desc = 'Recent' })
