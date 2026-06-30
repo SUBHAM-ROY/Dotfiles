@@ -53,6 +53,7 @@
       vplug = "nvim ~/.config/nvim/plugins/$argv[1].lua";
       timer = "systemd-run --user --on-active=$argv[1] aplay -d 3 ~/Downloads/timer.wav";
       sleep_after = "systemd-run --on-active=$argv[1] sudo systemctl suspend";
+      nix-val = "nix eval --read-only --json ~/dotfiles/nix/.#nixosConfigurations.roynix.options.$argv[1].definitionsWithLocations";
     };
 
     shellInit = ''

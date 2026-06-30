@@ -8,6 +8,7 @@
       obsidian
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
+      wineWow64Packages.stagingFull
       codex
       brave
       keepassxc

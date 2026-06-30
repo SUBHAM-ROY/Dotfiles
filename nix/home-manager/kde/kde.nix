@@ -65,14 +65,11 @@ lib.mkIf pkgs.stdenv.isLinux {
     };
 
     shortcuts = {
-      ksmserver."Lock Session" = [
-        "Alt+Shift+L"
-        "Screensaver"
-      ];
-      ksmserver.Sleep = [
-        "Ctrl+Alt+S"
-        "Sleep"
-      ];
+      ksmserver = {
+        "Lock Session" = "Alt+Shift+L";
+        "Reboot Without Confirmation" = "Ctrl+Alt+R";
+      };
+      "org_kde_powerdevil".Sleep = "Ctrl+Alt+S";
       kwin = {
         "Window Close" = "Meta+Q";
         "Switch to Desktop 1" = "Meta+1";
