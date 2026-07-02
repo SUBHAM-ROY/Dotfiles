@@ -107,7 +107,10 @@ lib.mkIf pkgs.stdenv.isLinux {
         "activate task manager entry 4" = "Alt+4";
         "activate task manager entry 5" = "Alt+5";
       };
-      "services/brave-browser.desktop"._launch = "Alt+Shift+B";
+      "services/brave-browser.desktop" = {
+        _launch = "Alt+Shift+B";
+        "new-private-window" = "Alt+Shift+I";
+      };
       "services/kitty.desktop"._launch = "Alt+Shift+K";
       "services/obsidian.desktop"._launch = "Alt+Shift+O";
       "services/calibre-gui.desktop"._launch = "Alt+Shift+C";

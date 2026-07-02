@@ -55,7 +55,6 @@
   # Samba file sharing
   services.samba = {
     enable = true;
-    openFirewall = true;
     settings = {
       share = {
         comment = "Roynix Samba Share";
