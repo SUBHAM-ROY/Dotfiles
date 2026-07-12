@@ -145,11 +145,16 @@ lib.mkIf pkgs.stdenv.isLinux {
       };
     };
 
-    configFile."kuriikwsfilterrc" = {
-      General.DefaultWebShortcut = "google";
-      General.KeywordDelimiter = {
-        value = "\\s";
-        escapeValue = false;
+    searchPlugins.webSearchKeywords = {
+      default = "google";
+      delimiter = "\\s";
+      extra.nixpkgs = {
+        keys = [ "np" ];
+        query = "https://search.nixos.org/packages?channel=unstable&query=\\{@}";
+      };
+      extra.nixosOptions = {
+        keys = [ "no" ];
+        query = "https://search.nixos.org/options?channel=unstable&query=\\{@}";
       };
     };
 

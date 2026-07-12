@@ -13,7 +13,6 @@
       wineWow64Packages.stagingFull
       codex
       brave
-      yt-dlp
       calibre
       spotify
       feishin

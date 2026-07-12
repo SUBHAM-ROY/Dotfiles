@@ -5,13 +5,12 @@
     tldr
     speedtest-cli
     bat
-    (ouch.override { enableUnfree = true; })
+    ouch-rar
     lsd
     jq
     fd
     dust
     delta
-    mpv
     borgbackup
     lazydocker
   ];

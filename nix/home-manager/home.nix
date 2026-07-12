@@ -25,6 +25,8 @@
     ./packages/utils.nix
     ./packages/misc.nix
     ./haruna/haruna.nix
+    ./mpv/mpv.nix
+    ./yt-dlp/yt-dlp.nix
     ./beets/beets.nix
     ./opencode/opencode.nix
   ];

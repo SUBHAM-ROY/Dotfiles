@@ -41,7 +41,10 @@
 
   # Enable networking
   networking.hostName = "roynix"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
   # Firewall settings
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -74,6 +77,7 @@
     git
     lsof
     efibootmgr
+    openvpn
     pciutils
     python3
     usbutils
