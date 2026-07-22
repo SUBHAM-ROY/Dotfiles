@@ -75,6 +75,7 @@
   environment.systemPackages = with pkgs; [
     ffmpeg-full
     git
+    gcc
     lsof
     efibootmgr
     openvpn

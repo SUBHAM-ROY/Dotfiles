@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  mypkg,
+  ...
+}:
 
 {
   home.packages =
@@ -6,10 +11,11 @@
     [
       nerd-fonts.meslo-lg
       obsidian
-      keepassxc
       gh
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
+      keepassxc
+      mypkg.iptvnator
       wineWow64Packages.stagingFull
       codex
       brave
@@ -21,5 +27,6 @@
     ++ lib.optionals pkgs.stdenv.isDarwin [
       cursor-cli
       jira-cli-go
+      claude-code
     ];
 }

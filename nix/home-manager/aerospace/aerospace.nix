@@ -5,6 +5,10 @@ lib.mkIf pkgs.stdenv.isDarwin {
     enable = true;
 
     settings = {
+      config-version = 2;
+
+      focus-follows-mouse.enabled = true;
+
       after-startup-command = [
         "workspace 1"
         "move-workspace-to-monitor 2"

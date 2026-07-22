@@ -135,6 +135,7 @@
       "unrar"
       "cursor-cli"
       "spotify"
+      "claude-code"
     ];
 
   programs.zoxide = {
@@ -144,6 +145,4 @@
   programs.nh = {
     enable = true;
   };
-
-  targets.genericLinux.enable = lib.mkIf pkgs.stdenv.isLinux true;
 }
