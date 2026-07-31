@@ -13,6 +13,7 @@
     ./tmux/tmux.nix
     ./ripgrep/ripgrep.nix
     ./fzf/fzf.nix
+    ./direnv/direnv.nix
     ./lazygit/lazygit.nix
     ./yazi/yazi.nix
     ./btop/btop.nix

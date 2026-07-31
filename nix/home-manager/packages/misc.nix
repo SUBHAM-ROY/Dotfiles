@@ -4,7 +4,6 @@
   mypkg,
   ...
 }:
-
 {
   home.packages =
     with pkgs;
@@ -17,7 +16,6 @@
       keepassxc
       mypkg.iptvnator
       wineWow64Packages.stagingFull
-      codex
       brave
       calibre
       spotify

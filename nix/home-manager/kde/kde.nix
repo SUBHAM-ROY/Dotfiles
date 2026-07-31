@@ -9,7 +9,6 @@ lib.mkIf pkgs.stdenv.isLinux {
     candy-icons
     kara
     kdePackages.krohnkite
-    nordic
     plasma-panel-colorizer
   ];
 

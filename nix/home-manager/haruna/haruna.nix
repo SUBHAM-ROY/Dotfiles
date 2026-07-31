@@ -4,7 +4,7 @@ lib.mkIf pkgs.stdenv.isLinux {
   home.packages = [ pkgs.haruna ];
 
   xdg.configFile."haruna/custom-commands.conf".text = ''
-    Counter=5
+    Counter=6
 
     [Command_0]
     Command=Show Time
@@ -29,6 +29,11 @@ lib.mkIf pkgs.stdenv.isLinux {
     Order=3
     OsdMessage=Audio Delay: ''${audio-delay}
     Type=shortcut
+
+    [Command_4]
+    Command=script-binding stats/display-stats
+    Order=4
+    Type=shortcut
   '';
 
   xdg.configFile."haruna/shortcuts.conf".text = ''
@@ -37,6 +42,7 @@ lib.mkIf pkgs.stdenv.isLinux {
     Command_1=N
     Command_2==
     Command_3=-
+    Command_4=I
   '';
 }
 
