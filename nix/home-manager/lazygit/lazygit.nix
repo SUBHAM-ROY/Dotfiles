@@ -12,8 +12,8 @@
         nerdFontsVersion = 3;
       };
       git = {
-        pagers = [
-          { pager = "delta --dark --paging=never"; }
+        diffRenderers = [
+          { command = "delta --dark --paging=never"; }
         ];
         branchPrefix = "subham/";
       };
