@@ -17,17 +17,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    mypkg.url = "github:SUBHAM-ROY/nixpkgs/master";
   };
 
   outputs =
-    { nixpkgs, home-manager, plasma-manager, grub2-themes, nix-flatpak, mypkg, ... }@inputs:
+    { nixpkgs, home-manager, plasma-manager, grub2-themes, nix-flatpak, ... }@inputs:
     let
       mkHomeConfig = system: home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {
-          mypkg = mypkg.legacyPackages.${system};
-        };
         modules = [
           ./home-manager/home.nix
           plasma-manager.homeModules.plasma-manager

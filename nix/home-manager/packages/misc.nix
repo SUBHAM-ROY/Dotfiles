@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  mypkg,
   ...
 }:
 {
@@ -14,7 +13,7 @@
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       keepassxc
-      mypkg.iptvnator
+      iptvnator
       wineWow64Packages.stagingFull
       brave
       calibre
