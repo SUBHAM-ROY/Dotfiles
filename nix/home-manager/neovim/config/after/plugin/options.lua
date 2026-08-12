@@ -1,0 +1,25 @@
+vim.o.shell = 'fish' -- Use fish shell
+vim.o.number = true -- Show line numbers
+vim.o.relativenumber = true -- Show relative line numbers
+vim.o.cursorline = true -- Show current line highlights
+vim.o.splitright = true -- Split vertical on right
+vim.o.splitbelow = true -- Split horizontal on bottom
+vim.o.clipboard = 'unnamedplus' -- Shared clipboard
+vim.o.scrolloff = 999 -- Always keep cursor centered vertically
+
+vim.o.expandtab = true -- Convert tabs to spaces
+vim.o.shiftwidth = 4 -- Use 4 spaces for autoindent
+vim.o.tabstop = 4 -- Display tabs as 4 spaces
+vim.o.softtabstop = 4 -- Insert 4 spaces when you hit Tab
+vim.o.smartindent = true -- Smart indenting
+vim.o.autoindent = true -- Keep indent from current line
+vim.o.breakindent = true -- Keep indent on wrapped lines
+
+vim.o.foldmethod = 'expr' -- Use expression for folding
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use treesitter for fold expression
+vim.o.foldenable = false -- Don't fold by default
+vim.o.foldlevel = 99 -- Open all folds by default
+
+-- Make Vim windows transparent
+-- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
