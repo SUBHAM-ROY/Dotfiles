@@ -14,7 +14,6 @@
     ++ lib.optionals pkgs.stdenv.isLinux [
       keepassxc
       iptvnator
-      wineWow64Packages.stagingFull
       brave
       calibre
       spotify

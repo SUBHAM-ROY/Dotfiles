@@ -47,6 +47,7 @@
   };
   # Firewall settings
   # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.interfaces.wlo1.allowedTCPPorts = [ 9090 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 
