@@ -11,7 +11,7 @@
       obsidian
       gh
     ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       keepassxc
       iptvnator
       brave
@@ -20,7 +20,7 @@
       feishin
       kew
     ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       cursor-cli
       jira-cli-go
       claude-code

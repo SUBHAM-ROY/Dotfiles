@@ -24,7 +24,7 @@
       uv
       nodejs
     ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       # Linux-only (Darwin uses kqueue natively for LSP file watching)
       inotify-tools
     ];

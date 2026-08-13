@@ -35,8 +35,8 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage. Username + home directory are platform-dependent so we derive them
   # from pkgs.stdenv at build time instead of hardcoding.
-  home.username = if pkgs.stdenv.isLinux then "sroy" else "subham.roy";
-  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/sroy" else "/Users/subham.roy";
+  home.username = if pkgs.stdenv.hostPlatform.isLinux then "sroy" else "subham.roy";
+  home.homeDirectory = if pkgs.stdenv.hostPlatform.isLinux then "/home/sroy" else "/Users/subham.roy";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -130,9 +130,6 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
-      "stremio-linux-shell"
-      "albert"
-      "ouch"
       "unrar"
       "cursor-cli"
       "spotify"

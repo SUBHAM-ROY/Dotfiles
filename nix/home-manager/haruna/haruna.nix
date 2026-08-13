@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home.packages = [ pkgs.haruna ];
 
   xdg.configFile."haruna/custom-commands.conf".text = ''

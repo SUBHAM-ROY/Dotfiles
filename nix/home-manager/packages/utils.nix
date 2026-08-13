@@ -5,13 +5,13 @@
     tldr
     speedtest-cli
     bat
-    ouch-rar
+    ouch
+    unrar
     lsd
     jq
     fd
     dust
     delta
     borgbackup
-    lazydocker
   ];
 }

@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 
-lib.mkIf pkgs.stdenv.isDarwin {
+lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
   programs.aerospace = {
     enable = true;
 

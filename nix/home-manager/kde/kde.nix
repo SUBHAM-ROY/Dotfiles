@@ -4,7 +4,7 @@
   pkgs,
   ...
 }:
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home.packages = with pkgs; [
     candy-icons
     kara

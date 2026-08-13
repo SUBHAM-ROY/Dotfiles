@@ -47,7 +47,10 @@
   };
   # Firewall settings
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.interfaces.wlo1.allowedTCPPorts = [ 9090 ];
+  networking.firewall.interfaces.wlo1.allowedTCPPorts = [
+    9090 # Calibre connect
+    8181 # Wallabag
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 
@@ -81,6 +84,7 @@
     efibootmgr
     openvpn
     pciutils
+    podman-compose
     python3
     usbutils
     wl-clipboard

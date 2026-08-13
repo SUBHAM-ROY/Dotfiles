@@ -5,7 +5,7 @@
   ...
 }:
 
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   programs.beets = {
     enable = true;
     settings = {

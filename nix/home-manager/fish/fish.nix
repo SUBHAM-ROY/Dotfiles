@@ -41,8 +41,6 @@
       nos = "nh os switch";
       nou = "nh os switch -u";
 
-      docks = "lazydocker";
-
       gfc = "git branch -a | fzf | sed 's/remotes\\/origin\\///' | xargs git checkout";
       gfd = "git branch | fzf --multi | xargs git branch -D";
 
@@ -70,14 +68,12 @@
       set -gx HOMEBREW_API_AUTO_UPDATE_SECS 86400
       set -gx HOMEBREW_AUTO_UPDATE_SECS 259200
 
-      # Podman socket (only set on Linux where podman is used)
-      if test -e /var/run/podman/podman.sock
-          set -gx DOCKER_HOST unix:///var/run/podman/podman.sock
-      end
-
       # Editor
       set -gx EDITOR ${pkgs.neovim}/bin/nvim
       set -gx MANPAGER '${pkgs.neovim}/bin/nvim +Man!'
+
+      # Always enable web search in opencode
+      set -gx OPENCODE_ENABLE_EXA 1
 
       # Fish appearance/settings
       set -g fish_greeting
