@@ -2,12 +2,29 @@ vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
 
+local sandbox_compose = vim.fn.expand('~/Codes/agent-sandbox/compose.yaml')
+local tools = {}
+if vim.fn.filereadable(sandbox_compose) == 1 then
+  tools.opencode_sandbox = {
+    cmd = {
+      'podman',
+      'compose',
+      '-f',
+      sandbox_compose,
+      'run',
+      '--rm',
+      'opencode',
+    },
+  }
+end
+
 require('sidekick').setup({
   cli = {
     mux = {
       backend = 'tmux',
       enabled = true,
     },
+    tools = tools,
     win = {
       split = {
         width = 0.45,

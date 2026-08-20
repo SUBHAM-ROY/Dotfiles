@@ -49,7 +49,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   networking.firewall.interfaces.wlo1.allowedTCPPorts = [
     9090 # Calibre connect
-    8181 # Wallabag
+    445 # SMB
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
