@@ -1,6 +1,14 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+  home.file.".config/opencode/skills".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/home-manager/opencode/skills";
+
   programs.opencode = {
     enable = true;
 
