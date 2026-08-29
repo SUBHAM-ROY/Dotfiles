@@ -52,6 +52,18 @@
       timer = "systemd-run --user --on-active=$argv[1] aplay -d 3 ~/Downloads/timer.wav";
       sleep_after = "systemd-run --on-active=$argv[1] sudo systemctl suspend";
       nix-val = "nix eval --read-only --json ~/dotfiles/nix/.#nixosConfigurations.roynix.options.$argv[1].definitionsWithLocations";
+
+      cursor-sandbox = ''
+        set -l git_common_dir (git rev-parse --path-format=absolute --git-common-dir 2>/dev/null; or echo "$PWD/.git")
+        touch -a "$PWD/.env"
+        env GIT_COMMON_DIR=$git_common_dir docker compose -f $HOME/Desktop/Codes/agent-sandbox/compose.cursor.yaml run --rm cursor-sandbox
+      '';
+
+      claude-sandbox = ''
+        set -l git_common_dir (git rev-parse --path-format=absolute --git-common-dir 2>/dev/null; or echo "$PWD/.git")
+        touch -a "$PWD/.env"
+        env GIT_COMMON_DIR=$git_common_dir docker compose -f $HOME/Desktop/Codes/agent-sandbox/compose.claude.yaml run --rm agent-sandbox
+      '';
     };
 
     shellInit = ''

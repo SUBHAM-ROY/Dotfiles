@@ -2,18 +2,57 @@ vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
 
-local sandbox_compose = vim.fn.expand('~/Codes/agent-sandbox/compose.yaml')
 local tools = {}
-if vim.fn.filereadable(sandbox_compose) == 1 then
+
+-- linux: opencode sandbox via podman
+local opencode_compose = vim.fn.expand('~/Codes/agent-sandbox/compose.yaml')
+if vim.fn.filereadable(opencode_compose) == 1 then
   tools.opencode_sandbox = {
     cmd = {
       'podman',
       'compose',
       '-f',
-      sandbox_compose,
+      opencode_compose,
       'run',
       '--rm',
       'opencode',
+    },
+  }
+end
+
+-- resolves the main repo's .git dir (differs from PWD/.git when PWD is a linked worktree)
+-- so it can be bind-mounted alongside PWD, letting the worktree's gitdir pointer resolve in-container
+local git_common_dir_cmd =
+  'GIT_COMMON_DIR="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null || echo "$PWD/.git")"'
+
+-- mac: claude sandbox via docker
+local claude_compose = vim.fn.expand('~/Desktop/Codes/agent-sandbox/compose.claude.yaml')
+if vim.fn.filereadable(claude_compose) == 1 then
+  tools.claude_sandbox = {
+    cmd = {
+      'sh',
+      '-c',
+      'touch -a "$PWD/.env"; '
+        .. git_common_dir_cmd
+        .. ' exec docker compose -f "'
+        .. claude_compose
+        .. '" run --rm agent-sandbox',
+    },
+  }
+end
+
+-- mac: cursor sandbox via docker
+local cursor_compose = vim.fn.expand('~/Desktop/Codes/agent-sandbox/compose.cursor.yaml')
+if vim.fn.filereadable(cursor_compose) == 1 then
+  tools.cursor_sandbox = {
+    cmd = {
+      'sh',
+      '-c',
+      'touch -a "$PWD/.env"; '
+        .. git_common_dir_cmd
+        .. ' exec docker compose -f "'
+        .. cursor_compose
+        .. '" run --rm cursor-sandbox',
     },
   }
 end

@@ -8,9 +8,6 @@ require('diffview').setup({
       position = 'right',
     },
   },
-  hooks = {
-    diff_buf_win_enter = function() vim.opt_local.foldenable = false end,
-  },
 })
 
 local map = vim.keymap.set
