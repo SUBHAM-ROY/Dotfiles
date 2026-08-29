@@ -9,6 +9,7 @@ lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     candy-icons
     kara
     kdePackages.krohnkite
+    nordic
     plasma-panel-colorizer
   ];
 
@@ -49,9 +50,17 @@ lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
 
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
-    kwin.virtualDesktops = {
-      number = 5;
-      rows = 1;
+    kwin = {
+      virtualDesktops = {
+        number = 5;
+        rows = 1;
+      };
+
+      nightLight = {
+        enable = true;
+        mode = "constant";
+        temperature.night = 3900;
+      };
     };
 
     powerdevil = {

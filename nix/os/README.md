@@ -41,10 +41,13 @@ nh home switch
 
 ## 5. Install external KDE plugins
 
-Everything from `kde.nix` packages (`candy-icons`, `kdePackages.krohnkite`, `kara`, `plasma-panel-colorizer`)
-is already handled by Nix. Manually install from KDE Store:
+Everything from `kde.nix` packages (`candy-icons`, `kdePackages.krohnkite`, `kara`, `nordic`,
+`plasma-panel-colorizer`) is already handled by Nix. The **Nordic** theme provides the color
+scheme `NordicDarker`, cursor theme `Nordic-cursors` and aurorae window decoration `Nordic`
+used by `kde.nix`.
 
-- **Nordic** theme (removed from nixpkgs; install via `kde/kvantum`, color scheme `NordicDarker`, cursor `Nordic-cursors`, aurorae `Nordic`, sddm theme) — download from the [KDE Store](https://store.kde.org/p/1267246/)
+The only manual install left, from the KDE Store:
+
 - **Modern Clock** desktop widget (`com.github.prayag2.modernclock`)
 
 ## 6. Apply plasma-manager config once

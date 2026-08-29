@@ -33,6 +33,10 @@
     ];
 
     extraConfig = ''
+      # Fix for: https://github.com/catppuccin/tmux/issues/600
+      set -gF message-style "fg=#{@thm_teal},bg=default,fill=#{@thm_bg}"
+      set -gF message-command-style "fg=#{@thm_teal},bg=default,fill=#{@thm_bg}"
+
       # General
       set -g renumber-windows on
       set -g status-position top
