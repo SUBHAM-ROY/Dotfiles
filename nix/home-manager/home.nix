@@ -134,6 +134,7 @@
       "cursor-cli"
       "spotify"
       "claude-code"
+      "copilot-language-server"
     ];
 
   programs.zoxide = {

@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     neovim
+    copilot-language-server
   ];
 
   home.file.".config/nvim".source =

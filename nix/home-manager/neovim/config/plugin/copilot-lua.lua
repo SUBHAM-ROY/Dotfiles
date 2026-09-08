@@ -3,6 +3,11 @@ vim.pack.add({
 })
 
 require('copilot').setup({
+  server = {
+    type = 'binary',
+    -- nixpkgs `copilot-language-server` on PATH, no auto-download
+    custom_server_filepath = 'copilot-language-server',
+  },
   filetypes = {
     markdown = true,
     yaml = true,
