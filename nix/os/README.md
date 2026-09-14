@@ -28,8 +28,8 @@ cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/os/hardware-configuratio
 ```bash
 # Flakes aren't enabled yet, so pass the experimental features for this first rebuild:
 sudo NIX_CONFIG="experimental-features = nix-command flakes" \
-  nixos-rebuild switch --flake ~/dotfiles/nix/os#roynix
-nix run github:nix-community/home-manager -- switch --flake ~/dotfiles/nix/home-manager#sroy
+  nixos-rebuild switch --flake ~/dotfiles/nix#roynix
+nix run github:nix-community/home-manager -- switch --flake ~/dotfiles/nix#sroy
 ```
 
 Flakes are now enabled, so from here on use `nh`:

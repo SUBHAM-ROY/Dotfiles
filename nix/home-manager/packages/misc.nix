@@ -16,7 +16,6 @@
       iptvnator
       brave
       calibre
-      spotify
       feishin
       kew
     ]

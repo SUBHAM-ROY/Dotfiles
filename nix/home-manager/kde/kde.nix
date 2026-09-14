@@ -8,6 +8,7 @@ lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home.packages = with pkgs; [
     candy-icons
     kara
+    kde-modernclock
     kdePackages.krohnkite
     nordic
     plasma-panel-colorizer

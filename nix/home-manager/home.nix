@@ -132,7 +132,6 @@
       "obsidian"
       "unrar"
       "cursor-cli"
-      "spotify"
       "claude-code"
       "copilot-language-server"
     ];
