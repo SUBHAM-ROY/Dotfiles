@@ -7,8 +7,6 @@ lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     settings = {
       config-version = 2;
 
-      focus-follows-mouse.enabled = true;
-
       after-startup-command = [
         "workspace 1"
         "move-workspace-to-monitor 2"
@@ -164,7 +162,7 @@ lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
           run = [ "move-node-to-workspace 3" ];
         }
         {
-          "if".app-name-regex-substring = "outlook";
+          "if".app-name-regex-substring = "outlook|gmail|calendar";
           run = [ "move-node-to-workspace 4" ];
         }
         {
