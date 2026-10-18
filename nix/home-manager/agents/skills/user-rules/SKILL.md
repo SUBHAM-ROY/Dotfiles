@@ -34,4 +34,4 @@ Never change remote URL (ssh ↔ https) without explicit user approval.
 Apply **only** when `id -un` is `sandbox` (or `$HOME` is `/home/sandbox`).
 
 ## Host commands
-Cannot run host-side commands from here. Copy the command to the host clipboard per [copy-from-container](../copy-from-container/SKILL.md). Tee stdout/stderr to a file in the shared worktree and read that file. Do not ask for a paste of the log.
+Cannot run host-side commands from here. Copy the command to the host clipboard per [copy-from-container](../copy-from-container/SKILL.md). Tee stdout/stderr to a file in the shared worktree and read that file. Do not ask for a paste of the log. Emit commands in the user's shell (fish).

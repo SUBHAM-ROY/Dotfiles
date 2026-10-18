@@ -2,16 +2,17 @@
 
 {
   home.packages = with pkgs; [
-    tldr
-    speedtest-cli
     bat
-    ouch
-    unrar
-    lsd
-    jq
-    fd
-    dust
-    delta
     borgbackup
+    delta
+    dust
+    fd
+    file
+    jq
+    lsd
+    ouch
+    speedtest-cli
+    tldr
+    unrar
   ];
 }

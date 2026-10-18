@@ -60,12 +60,12 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  programs.kde-pim.enable = false;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     khelpcenter
     kate
     ktexteditor
     elisa
-    kwin-x11
     ark
     krdp
     plasma-keyboard
@@ -123,6 +123,7 @@
     modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
+    powerManagement.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     prime = {
       offload.enable = true;

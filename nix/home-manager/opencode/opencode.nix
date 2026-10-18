@@ -71,8 +71,12 @@ lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       };
     };
 
-    tui = {
-      theme = "nord";
+    mutableSettings = true;
+
+    cli = {
+      theme = {
+        name = "nord";
+      };
     };
   };
 }
