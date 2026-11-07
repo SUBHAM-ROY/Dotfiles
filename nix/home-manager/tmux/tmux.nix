@@ -8,6 +8,7 @@
     mouse = true;
     shell = "${pkgs.fish}/bin/fish";
     keyMode = "vi";
+    terminal = "tmux-256color";
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
