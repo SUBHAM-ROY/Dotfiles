@@ -27,6 +27,13 @@
         modules = [
           ./home-manager/home.nix
           plasma-manager.homeModules.plasma-manager
+          # Unfree handling for the standalone (macOS) config. The NixOS host
+          # allows unfree system-wide in os/configuration.nix instead.
+          ({ pkgs, lib, ... }: {
+            nixpkgs.config.allowUnfreePredicate = pkg:
+              builtins.elem (lib.getName pkg)
+                (import ./home-manager/unfree-packages.nix);
+          })
         ];
       };
     in
@@ -38,11 +45,11 @@
           ./os/configuration.nix
           grub2-themes.nixosModules.default
           nix-flatpak.nixosModules.nix-flatpak
+          inputs.home-manager.nixosModules.home-manager
         ];
       };
 
       homeConfigurations = {
-        "sroy" = mkHomeConfig "x86_64-linux";
         "subham.roy" = mkHomeConfig "aarch64-darwin";
       };
     };

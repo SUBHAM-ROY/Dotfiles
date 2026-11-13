@@ -116,7 +116,7 @@
   programs.home-manager.enable = true;
 
   # This generates ~/.config/nix/nix.conf, which overrides /etc/nix/nix.conf.
-  nix.package = pkgs.nix;
+  nix.package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin pkgs.nix;
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -124,17 +124,6 @@
     ];
     warn-dirty = false;
   };
-
-  # List of unfree packages that are allowed to be installed.
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "obsidian"
-      "unrar"
-      "cursor-cli"
-      "claude-code"
-      "copilot-language-server"
-    ];
 
   programs.zoxide = {
     enable = true;

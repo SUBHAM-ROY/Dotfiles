@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -140,6 +140,13 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
+    users.sroy = import ../home-manager/home.nix;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
